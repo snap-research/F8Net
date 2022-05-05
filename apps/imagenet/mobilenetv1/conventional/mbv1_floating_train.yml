@@ -1,0 +1,71 @@
+# =========================== Basic Settings ===========================
+# machine info
+num_gpus_per_job: 8  # number of gpus each job need
+
+# data
+dataset: imagenet1k
+data_transforms: imagenet1k
+data_loader: imagenet1k
+dataset_dir: data
+data_loader_workers: 5
+
+# info
+num_classes: 1000
+image_size: 224 
+topk: [1, 5]
+num_epochs: 150
+
+# optimizer
+optimizer: sgd 
+momentum: 0.9 
+weight_decay: 0.00004
+nesterov: True
+
+# lr
+lr: 0.05
+lr_scheduler: cos_annealing_iter
+
+
+# pretrain, resume, test_only
+pretrained_dir: ''
+pretrained_file: ''
+resume: ''
+test_only: False
+
+#
+random_seed: 1995
+model: ''
+reset_parameters: True
+
+#
+distributed: True
+distributed_all_reduce: True
+use_diff_seed: True
+
+#
+width_divisor: 8
+min_width: 1
+
+#
+rescale_forward: True
+rescale_forward_conv: False
+#normalize: False
+rescale_type: constant #[stddev, constant]
+
+#
+floating_model: True
+
+#
+weight_format: [8, 7]
+input_format: [8, 6]
+
+#
+format_type: ~ #[~, per_layer, per_channel]
+
+#
+weight_decay_scheme: all
+
+# =========================== Override Settings ===========================
+#fp_pretrained_file: /path/to/best_model.pt
+log_dir: /path/to/checkpoints/F8Net/results/imagenet/mobilenetv1
+model: models.fix_mobilenet_v1

@@ -1,0 +1,1905 @@
+/home/qjin/FixBits
+Total batch size:  2048
+Batch size per GPU:  256
+No. of GPUs:  8
+No. of nodes:  1
+No. of processes per node:  8
+use diff seed is Trueuse diff seed is True
+
+Expected seed: 1995Expected seed: 1999
+
+use diff seed is True
+seed for random sampling: 1995
+Expected seed: 2001
+use diff seed is True
+use diff seed is True
+Expected seed: 2002
+Expected seed: 1998
+use diff seed is True
+Expected seed: 2000
+Experiment settings: ptcv_pretrained_False/fix_bn_False/finetune_iters_inf/bn_calib_before_test_False/bn_calib_batch_num_-1/lr_scheme_all/weight_format_wl_8_fl_7/input_format_wl_8_fl_6/rescale_forward_True/rescale_forward_conv_False/rescale_backward_False/rescale_backward_conv_False/rescale_type_constant/clamp_weight_False/use_shared_alpha_True/input_fraclen_sharing_False/per_channel_alpha_False/use_zeta_False/floating_False/floating_wo_clip_False/no_clipping_False/relu_after_first_conv_True/bn_wo_bias_False/fp_pretrained_True/start_epoch_None/alternating_False/format_type_per_layer/lambda_type_linear/lambda_gain_1/lambda_trainable_True/alpha_trainable_True/weight_trainable_True/fl_init_weight_7_input_6/hard_assign_epoch_120/hard_assign_val_only_False/weight_amplify_False/format_from_metric_True/metric_from_masked_tensor_False/momentum_for_metric_0.1/input_adaptive_False/metric_std/bn_momentum_0.1/bn_eps_0.1/custom_bn_False/lr_0.8/bn_var_lb_0/sync_bn_False/centralize_conv_False/centralize_fc_False/momentum_for_bias_diff_0.1/weight_decay_scheme_no_bn/effective_weight_decay_0.0/corrected_kaiming_init_False/nvidia_setting_False/normalize_False/warmup_epochs_5/label_smoothing_0.0/mixup_0.0/weight_decay_4e-05/fraclen_lb_0
+use diff seed is True
+Expected seed: 1997
+use diff seed is True
+Expected seed: 1996
+Loaded full precision model /nfs/qjin1/checkpoints/FixBits/results/imagenet/mobilenetv2/weight_format_wl_8_fl_7/input_format_wl_8_fl_6/rescale_forward_True/rescale_forward_conv_False/rescale_backward_False/rescale_backward_conv_False/rescale_type_constant/clamp_weight_False/use_shared_alpha_True/per_channel_alpha_False/use_zeta_False/floating_True/floating_wo_clip_False/fp_pretrained_False/start_epoch_None/alternating_False/format_type_None/lambda_type_linear/lambda_gain_1.0/lambda_trainable_True/alpha_trainable_True/weight_trainable_True/fl_init_weight_5_input_5/hard_assign_epoch_None/hard_assign_val_only_False/weight_amplify_False/format_from_metric_False/metric_from_masked_tensor_False/momentum_for_metric_0.1/input_adaptive_False/metric_False/bn_momentum_0.1/bn_eps_0.1/custom_bn_False/lr_0.8/bn_var_lb_0/sync_bn_False/centralize_conv_False/centralize_fc_False/momentum_for_bias_diff_0.1/weight_decay_scheme_no_bn/effective_weight_decay_0.0/corrected_kaiming_init_False/nvidia_setting_False/normalize_False/warmup_epochs_5/label_smoothing_0.0/mixup_0.0/weight_decay_4e-05/fraclen_lb_0/best_model.pt.
+AllReduceDistributedDataParallel(
+  (module): Model(
+    (head): Sequential(
+      (0): ReLUClipFXQConvBN(
+        (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): ReLU(inplace=True)
+    )
+    (stage_0_layer_0): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
+          (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(32, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (stage_1_layer_0): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(16, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=96, bias=False)
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(96, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (stage_1_layer_1): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(24, 144, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=144, bias=False)
+          (bn): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(144, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (stage_2_layer_0): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(24, 144, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(144, 144, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=144, bias=False)
+          (bn): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(144, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (stage_2_layer_1): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(32, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(192, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=192, bias=False)
+          (bn): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(192, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (stage_2_layer_2): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(32, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(192, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=192, bias=False)
+          (bn): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(192, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (stage_3_layer_0): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(32, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(192, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=192, bias=False)
+          (bn): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (stage_3_layer_1): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(64, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False)
+          (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(384, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (stage_3_layer_2): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(64, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False)
+          (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(384, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (stage_3_layer_3): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(64, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False)
+          (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(384, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (stage_4_layer_0): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(64, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False)
+          (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(384, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (stage_4_layer_1): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(96, 576, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(576, 576, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=576, bias=False)
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(576, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (stage_4_layer_2): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(96, 576, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(576, 576, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=576, bias=False)
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(576, 96, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (stage_5_layer_0): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(96, 576, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(576, 576, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=576, bias=False)
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(576, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (stage_5_layer_1): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(160, 960, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(960, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(960, 960, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=960, bias=False)
+          (bn): BatchNorm2d(960, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(960, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (stage_5_layer_2): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(160, 960, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(960, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(960, 960, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=960, bias=False)
+          (bn): BatchNorm2d(960, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(960, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (stage_6_layer_0): InvertedResidual(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(160, 960, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(960, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(960, 960, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=960, bias=False)
+          (bn): BatchNorm2d(960, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(960, 320, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (tail): Sequential(
+      (0): ReLUClipFXQConvBN(
+        (conv): Conv2d(320, 1280, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1280, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): ReLU(inplace=True)
+    )
+    (avgpool): AdaptiveAvgPool2d(output_size=1)
+    (classifier): Sequential(
+      (0): ReLUClipFXQLinear(in_features=1280, out_features=1000, bias=True)
+    )
+  )
+)
+log dir:  /nfs/qjin2/checkpoints/FixBits/results/imagenet/mobilenetv2/ptcv_pretrained_False/fix_bn_False/finetune_iters_inf/bn_calib_before_test_False/bn_calib_batch_num_-1/lr_scheme_all/weight_format_wl_8_fl_7/input_format_wl_8_fl_6/rescale_forward_True/rescale_forward_conv_False/rescale_backward_False/rescale_backward_conv_False/rescale_type_constant/clamp_weight_False/use_shared_alpha_True/input_fraclen_sharing_False/per_channel_alpha_False/use_zeta_False/floating_False/floating_wo_clip_False/no_clipping_False/relu_after_first_conv_True/bn_wo_bias_False/fp_pretrained_True/start_epoch_None/alternating_False/format_type_per_layer/lambda_type_linear/lambda_gain_1/lambda_trainable_True/alpha_trainable_True/weight_trainable_True/fl_init_weight_7_input_6/hard_assign_epoch_120/hard_assign_val_only_False/weight_amplify_False/format_from_metric_True/metric_from_masked_tensor_False/momentum_for_metric_0.1/input_adaptive_False/metric_std/bn_momentum_0.1/bn_eps_0.1/custom_bn_False/lr_0.8/bn_var_lb_0/sync_bn_False/centralize_conv_False/centralize_fc_False/momentum_for_bias_diff_0.1/weight_decay_scheme_no_bn/effective_weight_decay_0.0/corrected_kaiming_init_False/nvidia_setting_False/normalize_False/warmup_epochs_5/label_smoothing_0.0/mixup_0.0/weight_decay_4e-05/fraclen_lb_0
+Start training.
+**************** train *****************
+917.7s	train	0/150: loss: 1.54, l2_loss: 194085.396, total_loss: 1.54, top1_error: 0.365, top5_error: 0.157
+func:'run_one_epoch' took: 917.7485 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+20.5s	val	0/150: loss: 4.628, l2_loss: 138351.297, total_loss: 4.628, top1_error: 0.445, top5_error: 0.203, best_val: 1.0
+func:'run_one_epoch' took: 20.5109 sec
+New best validation top1 error: 0.445
+**************** train *****************
+516.9s	train	1/150: loss: 1.706, l2_loss: 132935.209, total_loss: 1.706, top1_error: 0.4, top5_error: 0.18
+func:'run_one_epoch' took: 516.8859 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	1/150: loss: 4.196, l2_loss: 135256.047, total_loss: 4.196, top1_error: 0.42, top5_error: 0.179, best_val: 0.445
+func:'run_one_epoch' took: 15.3031 sec
+New best validation top1 error: 0.420
+**************** train *****************
+519.3s	train	2/150: loss: 1.821, l2_loss: 194715.411, total_loss: 1.821, top1_error: 0.423, top5_error: 0.196
+func:'run_one_epoch' took: 519.3193 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	2/150: loss: 3.955, l2_loss: 220216.969, total_loss: 3.955, top1_error: 0.44, top5_error: 0.202, best_val: 0.42
+func:'run_one_epoch' took: 15.2546 sec
+**************** train *****************
+517.7s	train	3/150: loss: 1.86, l2_loss: 242784.629, total_loss: 1.86, top1_error: 0.43, top5_error: 0.202
+func:'run_one_epoch' took: 517.6546 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	3/150: loss: 3.942, l2_loss: 253468.891, total_loss: 3.942, top1_error: 0.485, top5_error: 0.237, best_val: 0.42
+func:'run_one_epoch' took: 15.3406 sec
+**************** train *****************
+518.3s	train	4/150: loss: 1.892, l2_loss: 266969.375, total_loss: 1.892, top1_error: 0.436, top5_error: 0.207
+func:'run_one_epoch' took: 518.3105 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.5s	val	4/150: loss: 3.427, l2_loss: 323469.656, total_loss: 3.427, top1_error: 0.423, top5_error: 0.186, best_val: 0.42
+func:'run_one_epoch' took: 15.5005 sec
+**************** train *****************
+519.7s	train	5/150: loss: 1.876, l2_loss: 356422.1, total_loss: 1.876, top1_error: 0.432, top5_error: 0.204
+func:'run_one_epoch' took: 519.6975 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.6s	val	5/150: loss: 3.167, l2_loss: 422476.062, total_loss: 3.167, top1_error: 0.419, top5_error: 0.181, best_val: 0.42
+func:'run_one_epoch' took: 15.5529 sec
+New best validation top1 error: 0.419
+**************** train *****************
+518.9s	train	6/150: loss: 1.841, l2_loss: 425765.802, total_loss: 1.841, top1_error: 0.425, top5_error: 0.2
+func:'run_one_epoch' took: 518.9267 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+14.9s	val	6/150: loss: 3.171, l2_loss: 472683.531, total_loss: 3.171, top1_error: 0.408, top5_error: 0.172, best_val: 0.419
+func:'run_one_epoch' took: 14.9418 sec
+New best validation top1 error: 0.408
+**************** train *****************
+519.5s	train	7/150: loss: 1.824, l2_loss: 504002.985, total_loss: 1.824, top1_error: 0.421, top5_error: 0.197
+func:'run_one_epoch' took: 519.4757 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	7/150: loss: 3.071, l2_loss: 498517.812, total_loss: 3.071, top1_error: 0.399, top5_error: 0.167, best_val: 0.408
+func:'run_one_epoch' took: 15.3020 sec
+New best validation top1 error: 0.399
+**************** train *****************
+520.2s	train	8/150: loss: 1.817, l2_loss: 498516.668, total_loss: 1.817, top1_error: 0.42, top5_error: 0.196
+func:'run_one_epoch' took: 520.1965 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.5s	val	8/150: loss: 3.193, l2_loss: 488745.969, total_loss: 3.193, top1_error: 0.397, top5_error: 0.163, best_val: 0.399
+func:'run_one_epoch' took: 15.4801 sec
+New best validation top1 error: 0.397
+**************** train *****************
+518.7s	train	9/150: loss: 1.811, l2_loss: 546367.002, total_loss: 1.811, top1_error: 0.419, top5_error: 0.195
+func:'run_one_epoch' took: 518.6952 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.7s	val	9/150: loss: 3.147, l2_loss: 569392.625, total_loss: 3.147, top1_error: 0.402, top5_error: 0.169, best_val: 0.397
+func:'run_one_epoch' took: 15.7187 sec
+**************** train *****************
+518.5s	train	10/150: loss: 1.807, l2_loss: 584081.153, total_loss: 1.807, top1_error: 0.417, top5_error: 0.194
+func:'run_one_epoch' took: 518.4694 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	10/150: loss: 3.162, l2_loss: 625727.438, total_loss: 3.162, top1_error: 0.395, top5_error: 0.164, best_val: 0.397
+func:'run_one_epoch' took: 15.3133 sec
+New best validation top1 error: 0.395
+**************** train *****************
+519.9s	train	11/150: loss: 1.806, l2_loss: 652982.754, total_loss: 1.806, top1_error: 0.417, top5_error: 0.194
+func:'run_one_epoch' took: 519.9239 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	11/150: loss: 3.041, l2_loss: 681362.75, total_loss: 3.041, top1_error: 0.395, top5_error: 0.162, best_val: 0.395
+func:'run_one_epoch' took: 15.4236 sec
+**************** train *****************
+521.3s	train	12/150: loss: 1.802, l2_loss: 733300.509, total_loss: 1.802, top1_error: 0.417, top5_error: 0.194
+func:'run_one_epoch' took: 521.2767 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	12/150: loss: 3.1, l2_loss: 753867.375, total_loss: 3.1, top1_error: 0.406, top5_error: 0.173, best_val: 0.395
+func:'run_one_epoch' took: 15.0556 sec
+**************** train *****************
+517.2s	train	13/150: loss: 1.806, l2_loss: 1108361.556, total_loss: 1.806, top1_error: 0.417, top5_error: 0.195
+func:'run_one_epoch' took: 517.1903 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	13/150: loss: 3.17, l2_loss: 1146125.625, total_loss: 3.17, top1_error: 0.4, top5_error: 0.168, best_val: 0.395
+func:'run_one_epoch' took: 15.2605 sec
+**************** train *****************
+518.9s	train	14/150: loss: 1.799, l2_loss: 1324985.466, total_loss: 1.799, top1_error: 0.416, top5_error: 0.193
+func:'run_one_epoch' took: 518.9226 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	14/150: loss: 3.079, l2_loss: 1218890.375, total_loss: 3.079, top1_error: 0.397, top5_error: 0.164, best_val: 0.395
+func:'run_one_epoch' took: 15.4035 sec
+**************** train *****************
+519.7s	train	15/150: loss: 1.796, l2_loss: 1255191.384, total_loss: 1.796, top1_error: 0.416, top5_error: 0.193
+func:'run_one_epoch' took: 519.6676 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	15/150: loss: 2.996, l2_loss: 1221062.375, total_loss: 2.996, top1_error: 0.388, top5_error: 0.158, best_val: 0.395
+func:'run_one_epoch' took: 15.2722 sec
+New best validation top1 error: 0.388
+**************** train *****************
+519.3s	train	16/150: loss: 1.798, l2_loss: 1283547.062, total_loss: 1.798, top1_error: 0.415, top5_error: 0.193
+func:'run_one_epoch' took: 519.3359 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.6s	val	16/150: loss: 3.049, l2_loss: 1331059.5, total_loss: 3.049, top1_error: 0.393, top5_error: 0.162, best_val: 0.388
+func:'run_one_epoch' took: 15.5690 sec
+**************** train *****************
+518.2s	train	17/150: loss: 1.798, l2_loss: 1343379.004, total_loss: 1.798, top1_error: 0.416, top5_error: 0.193
+func:'run_one_epoch' took: 518.2433 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	17/150: loss: 3.178, l2_loss: 1433724.25, total_loss: 3.178, top1_error: 0.407, top5_error: 0.175, best_val: 0.388
+func:'run_one_epoch' took: 15.3839 sec
+**************** train *****************
+519.1s	train	18/150: loss: 1.8, l2_loss: 1528637.446, total_loss: 1.8, top1_error: 0.416, top5_error: 0.194
+func:'run_one_epoch' took: 519.0896 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	18/150: loss: 3.263, l2_loss: 1666535.25, total_loss: 3.263, top1_error: 0.415, top5_error: 0.182, best_val: 0.388
+func:'run_one_epoch' took: 15.3488 sec
+**************** train *****************
+520.2s	train	19/150: loss: 1.803, l2_loss: 1604145.509, total_loss: 1.803, top1_error: 0.416, top5_error: 0.194
+func:'run_one_epoch' took: 520.1575 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+14.8s	val	19/150: loss: 3.26, l2_loss: 1536710.375, total_loss: 3.26, top1_error: 0.413, top5_error: 0.176, best_val: 0.388
+func:'run_one_epoch' took: 14.8383 sec
+**************** train *****************
+517.0s	train	20/150: loss: 1.801, l2_loss: 1533392.653, total_loss: 1.801, top1_error: 0.416, top5_error: 0.194
+func:'run_one_epoch' took: 516.9683 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	20/150: loss: 3.053, l2_loss: 1566500.75, total_loss: 3.053, top1_error: 0.392, top5_error: 0.164, best_val: 0.388
+func:'run_one_epoch' took: 15.3588 sec
+**************** train *****************
+517.7s	train	21/150: loss: 1.795, l2_loss: 1532403.113, total_loss: 1.795, top1_error: 0.415, top5_error: 0.193
+func:'run_one_epoch' took: 517.6764 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.0s	val	21/150: loss: 3.144, l2_loss: 1615688.5, total_loss: 3.144, top1_error: 0.396, top5_error: 0.163, best_val: 0.388
+func:'run_one_epoch' took: 15.0495 sec
+**************** train *****************
+520.1s	train	22/150: loss: 1.792, l2_loss: 1734590.275, total_loss: 1.792, top1_error: 0.414, top5_error: 0.192
+func:'run_one_epoch' took: 520.1153 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.0s	val	22/150: loss: 3.11, l2_loss: 1754500.25, total_loss: 3.11, top1_error: 0.389, top5_error: 0.161, best_val: 0.388
+func:'run_one_epoch' took: 14.9598 sec
+**************** train *****************
+520.0s	train	23/150: loss: 1.788, l2_loss: 1738210.238, total_loss: 1.788, top1_error: 0.413, top5_error: 0.192
+func:'run_one_epoch' took: 519.9771 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.5s	val	23/150: loss: 3.149, l2_loss: 1690638.5, total_loss: 3.149, top1_error: 0.391, top5_error: 0.163, best_val: 0.388
+func:'run_one_epoch' took: 15.5232 sec
+**************** train *****************
+518.3s	train	24/150: loss: 1.787, l2_loss: 1707301.71, total_loss: 1.787, top1_error: 0.413, top5_error: 0.192
+func:'run_one_epoch' took: 518.3290 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	24/150: loss: 3.21, l2_loss: 1680908.5, total_loss: 3.21, top1_error: 0.397, top5_error: 0.167, best_val: 0.388
+func:'run_one_epoch' took: 15.0980 sec
+**************** train *****************
+518.9s	train	25/150: loss: 1.786, l2_loss: 1902682.201, total_loss: 1.786, top1_error: 0.413, top5_error: 0.192
+func:'run_one_epoch' took: 518.9214 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	25/150: loss: 3.136, l2_loss: 2066597.0, total_loss: 3.136, top1_error: 0.396, top5_error: 0.167, best_val: 0.388
+func:'run_one_epoch' took: 15.1836 sec
+**************** train *****************
+519.3s	train	26/150: loss: 1.781, l2_loss: 2034366.505, total_loss: 1.781, top1_error: 0.412, top5_error: 0.191
+func:'run_one_epoch' took: 519.2861 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	26/150: loss: 3.144, l2_loss: 1964421.75, total_loss: 3.144, top1_error: 0.394, top5_error: 0.16, best_val: 0.388
+func:'run_one_epoch' took: 15.1031 sec
+**************** train *****************
+519.0s	train	27/150: loss: 1.78, l2_loss: 1955881.317, total_loss: 1.78, top1_error: 0.412, top5_error: 0.191
+func:'run_one_epoch' took: 518.9720 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.5s	val	27/150: loss: 3.165, l2_loss: 1913288.5, total_loss: 3.165, top1_error: 0.392, top5_error: 0.166, best_val: 0.388
+func:'run_one_epoch' took: 15.5284 sec
+**************** train *****************
+520.1s	train	28/150: loss: 1.777, l2_loss: 1988114.355, total_loss: 1.777, top1_error: 0.411, top5_error: 0.19
+func:'run_one_epoch' took: 520.0691 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.0s	val	28/150: loss: 3.226, l2_loss: 2060883.25, total_loss: 3.226, top1_error: 0.396, top5_error: 0.166, best_val: 0.388
+func:'run_one_epoch' took: 15.0136 sec
+**************** train *****************
+519.4s	train	29/150: loss: 1.774, l2_loss: 2033430.287, total_loss: 1.774, top1_error: 0.411, top5_error: 0.19
+func:'run_one_epoch' took: 519.4440 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	29/150: loss: 3.157, l2_loss: 1988501.125, total_loss: 3.157, top1_error: 0.391, top5_error: 0.163, best_val: 0.388
+func:'run_one_epoch' took: 15.1263 sec
+**************** train *****************
+518.6s	train	30/150: loss: 1.77, l2_loss: 2010545.59, total_loss: 1.77, top1_error: 0.41, top5_error: 0.189
+func:'run_one_epoch' took: 518.6471 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	30/150: loss: 3.149, l2_loss: 2036543.0, total_loss: 3.149, top1_error: 0.392, top5_error: 0.163, best_val: 0.388
+func:'run_one_epoch' took: 15.3001 sec
+**************** train *****************
+518.2s	train	31/150: loss: 1.77, l2_loss: 2022044.875, total_loss: 1.77, top1_error: 0.41, top5_error: 0.189
+func:'run_one_epoch' took: 518.2397 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	31/150: loss: 3.231, l2_loss: 2024378.125, total_loss: 3.231, top1_error: 0.398, top5_error: 0.163, best_val: 0.388
+func:'run_one_epoch' took: 15.2616 sec
+**************** train *****************
+520.1s	train	32/150: loss: 1.768, l2_loss: 2058504.238, total_loss: 1.768, top1_error: 0.41, top5_error: 0.189
+func:'run_one_epoch' took: 520.1014 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.0s	val	32/150: loss: 3.257, l2_loss: 2034912.375, total_loss: 3.257, top1_error: 0.401, top5_error: 0.169, best_val: 0.388
+func:'run_one_epoch' took: 15.0210 sec
+**************** train *****************
+520.7s	train	33/150: loss: 1.76, l2_loss: 2062864.584, total_loss: 1.76, top1_error: 0.409, top5_error: 0.188
+func:'run_one_epoch' took: 520.6998 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	33/150: loss: 3.176, l2_loss: 2007146.625, total_loss: 3.176, top1_error: 0.392, top5_error: 0.162, best_val: 0.388
+func:'run_one_epoch' took: 15.4138 sec
+**************** train *****************
+519.1s	train	34/150: loss: 1.759, l2_loss: 1965112.527, total_loss: 1.759, top1_error: 0.408, top5_error: 0.188
+func:'run_one_epoch' took: 519.1338 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	34/150: loss: 3.259, l2_loss: 1871815.0, total_loss: 3.259, top1_error: 0.391, top5_error: 0.164, best_val: 0.388
+func:'run_one_epoch' took: 15.4487 sec
+**************** train *****************
+519.0s	train	35/150: loss: 1.754, l2_loss: 1890787.639, total_loss: 1.754, top1_error: 0.406, top5_error: 0.187
+func:'run_one_epoch' took: 518.9878 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.0s	val	35/150: loss: 3.275, l2_loss: 1907158.0, total_loss: 3.275, top1_error: 0.395, top5_error: 0.164, best_val: 0.388
+func:'run_one_epoch' took: 15.0230 sec
+**************** train *****************
+521.1s	train	36/150: loss: 1.749, l2_loss: 1984485.104, total_loss: 1.749, top1_error: 0.406, top5_error: 0.186
+func:'run_one_epoch' took: 521.1143 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+14.9s	val	36/150: loss: 3.165, l2_loss: 2016586.375, total_loss: 3.165, top1_error: 0.384, top5_error: 0.159, best_val: 0.388
+func:'run_one_epoch' took: 14.9346 sec
+New best validation top1 error: 0.384
+**************** train *****************
+521.7s	train	37/150: loss: 1.749, l2_loss: 1974443.611, total_loss: 1.749, top1_error: 0.406, top5_error: 0.186
+func:'run_one_epoch' took: 521.6603 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	37/150: loss: 3.187, l2_loss: 1942585.75, total_loss: 3.187, top1_error: 0.387, top5_error: 0.159, best_val: 0.384
+func:'run_one_epoch' took: 15.3872 sec
+**************** train *****************
+519.8s	train	38/150: loss: 1.744, l2_loss: 1918851.024, total_loss: 1.744, top1_error: 0.404, top5_error: 0.185
+func:'run_one_epoch' took: 519.7558 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	38/150: loss: 3.222, l2_loss: 1840140.375, total_loss: 3.222, top1_error: 0.379, top5_error: 0.152, best_val: 0.384
+func:'run_one_epoch' took: 15.2436 sec
+New best validation top1 error: 0.379
+**************** train *****************
+518.7s	train	39/150: loss: 1.739, l2_loss: 1844632.835, total_loss: 1.739, top1_error: 0.404, top5_error: 0.185
+func:'run_one_epoch' took: 518.6540 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	39/150: loss: 3.325, l2_loss: 1841759.0, total_loss: 3.325, top1_error: 0.403, top5_error: 0.169, best_val: 0.379
+func:'run_one_epoch' took: 15.4031 sec
+**************** train *****************
+519.1s	train	40/150: loss: 1.735, l2_loss: 1869479.534, total_loss: 1.735, top1_error: 0.402, top5_error: 0.184
+func:'run_one_epoch' took: 519.1117 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	40/150: loss: 3.235, l2_loss: 1864165.625, total_loss: 3.235, top1_error: 0.381, top5_error: 0.155, best_val: 0.379
+func:'run_one_epoch' took: 15.2067 sec
+**************** train *****************
+520.2s	train	41/150: loss: 1.73, l2_loss: 1967113.403, total_loss: 1.73, top1_error: 0.401, top5_error: 0.184
+func:'run_one_epoch' took: 520.2466 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.5s	val	41/150: loss: 3.16, l2_loss: 1951384.125, total_loss: 3.16, top1_error: 0.385, top5_error: 0.159, best_val: 0.379
+func:'run_one_epoch' took: 15.5075 sec
+**************** train *****************
+518.6s	train	42/150: loss: 1.727, l2_loss: 1931049.237, total_loss: 1.727, top1_error: 0.401, top5_error: 0.183
+func:'run_one_epoch' took: 518.5776 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	42/150: loss: 3.181, l2_loss: 1861860.875, total_loss: 3.181, top1_error: 0.385, top5_error: 0.158, best_val: 0.379
+func:'run_one_epoch' took: 15.2908 sec
+**************** train *****************
+517.0s	train	43/150: loss: 1.722, l2_loss: 1911998.565, total_loss: 1.722, top1_error: 0.401, top5_error: 0.182
+func:'run_one_epoch' took: 516.9595 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	43/150: loss: 3.264, l2_loss: 1877904.75, total_loss: 3.264, top1_error: 0.376, top5_error: 0.151, best_val: 0.379
+func:'run_one_epoch' took: 15.1348 sec
+New best validation top1 error: 0.376
+**************** train *****************
+517.9s	train	44/150: loss: 1.721, l2_loss: 1908628.252, total_loss: 1.721, top1_error: 0.4, top5_error: 0.182
+func:'run_one_epoch' took: 517.9366 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.5s	val	44/150: loss: 3.268, l2_loss: 1937244.75, total_loss: 3.268, top1_error: 0.379, top5_error: 0.156, best_val: 0.376
+func:'run_one_epoch' took: 15.4900 sec
+**************** train *****************
+518.6s	train	45/150: loss: 1.715, l2_loss: 1999447.449, total_loss: 1.715, top1_error: 0.399, top5_error: 0.181
+func:'run_one_epoch' took: 518.5809 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+14.9s	val	45/150: loss: 3.241, l2_loss: 2017570.875, total_loss: 3.241, top1_error: 0.382, top5_error: 0.154, best_val: 0.376
+func:'run_one_epoch' took: 14.8895 sec
+**************** train *****************
+519.4s	train	46/150: loss: 1.712, l2_loss: 2053463.993, total_loss: 1.712, top1_error: 0.398, top5_error: 0.181
+func:'run_one_epoch' took: 519.3857 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	46/150: loss: 3.239, l2_loss: 2061312.0, total_loss: 3.239, top1_error: 0.368, top5_error: 0.148, best_val: 0.376
+func:'run_one_epoch' took: 15.1970 sec
+New best validation top1 error: 0.368
+**************** train *****************
+519.7s	train	47/150: loss: 1.709, l2_loss: 2099257.679, total_loss: 1.709, top1_error: 0.398, top5_error: 0.181
+func:'run_one_epoch' took: 519.6972 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	47/150: loss: 3.364, l2_loss: 2069088.875, total_loss: 3.364, top1_error: 0.378, top5_error: 0.153, best_val: 0.368
+func:'run_one_epoch' took: 15.2810 sec
+**************** train *****************
+519.8s	train	48/150: loss: 1.704, l2_loss: 2062068.836, total_loss: 1.704, top1_error: 0.396, top5_error: 0.18
+func:'run_one_epoch' took: 519.7911 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.0s	val	48/150: loss: 3.252, l2_loss: 2075768.25, total_loss: 3.252, top1_error: 0.384, top5_error: 0.157, best_val: 0.368
+func:'run_one_epoch' took: 14.9870 sec
+**************** train *****************
+518.2s	train	49/150: loss: 1.7, l2_loss: 2191628.452, total_loss: 1.7, top1_error: 0.396, top5_error: 0.179
+func:'run_one_epoch' took: 518.2167 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	49/150: loss: 3.304, l2_loss: 2223601.5, total_loss: 3.304, top1_error: 0.385, top5_error: 0.156, best_val: 0.368
+func:'run_one_epoch' took: 15.3194 sec
+**************** train *****************
+517.7s	train	50/150: loss: 1.694, l2_loss: 2208794.347, total_loss: 1.694, top1_error: 0.395, top5_error: 0.178
+func:'run_one_epoch' took: 517.7071 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	50/150: loss: 3.178, l2_loss: 2172826.0, total_loss: 3.178, top1_error: 0.37, top5_error: 0.147, best_val: 0.368
+func:'run_one_epoch' took: 15.4387 sec
+**************** train *****************
+519.5s	train	51/150: loss: 1.691, l2_loss: 2183137.34, total_loss: 1.691, top1_error: 0.394, top5_error: 0.178
+func:'run_one_epoch' took: 519.5477 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+14.9s	val	51/150: loss: 3.286, l2_loss: 2066586.0, total_loss: 3.286, top1_error: 0.383, top5_error: 0.153, best_val: 0.368
+func:'run_one_epoch' took: 14.9241 sec
+**************** train *****************
+519.8s	train	52/150: loss: 1.686, l2_loss: 2069873.289, total_loss: 1.686, top1_error: 0.393, top5_error: 0.177
+func:'run_one_epoch' took: 519.7798 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.6s	val	52/150: loss: 3.333, l2_loss: 2037383.25, total_loss: 3.333, top1_error: 0.373, top5_error: 0.152, best_val: 0.368
+func:'run_one_epoch' took: 15.6015 sec
+**************** train *****************
+519.1s	train	53/150: loss: 1.68, l2_loss: 2210044.587, total_loss: 1.68, top1_error: 0.391, top5_error: 0.177
+func:'run_one_epoch' took: 519.1031 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	53/150: loss: 3.279, l2_loss: 2353615.5, total_loss: 3.279, top1_error: 0.378, top5_error: 0.152, best_val: 0.368
+func:'run_one_epoch' took: 15.1944 sec
+**************** train *****************
+520.9s	train	54/150: loss: 1.677, l2_loss: 2350982.396, total_loss: 1.677, top1_error: 0.391, top5_error: 0.176
+func:'run_one_epoch' took: 520.8760 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	54/150: loss: 3.24, l2_loss: 2325526.75, total_loss: 3.24, top1_error: 0.382, top5_error: 0.158, best_val: 0.368
+func:'run_one_epoch' took: 15.0833 sec
+**************** train *****************
+518.5s	train	55/150: loss: 1.673, l2_loss: 2404767.431, total_loss: 1.673, top1_error: 0.39, top5_error: 0.175
+func:'run_one_epoch' took: 518.4763 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	55/150: loss: 3.328, l2_loss: 2382518.0, total_loss: 3.328, top1_error: 0.371, top5_error: 0.147, best_val: 0.368
+func:'run_one_epoch' took: 15.1513 sec
+**************** train *****************
+517.6s	train	56/150: loss: 1.668, l2_loss: 2390973.285, total_loss: 1.668, top1_error: 0.389, top5_error: 0.175
+func:'run_one_epoch' took: 517.5646 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	56/150: loss: 3.387, l2_loss: 2382297.75, total_loss: 3.387, top1_error: 0.364, top5_error: 0.143, best_val: 0.368
+func:'run_one_epoch' took: 15.2946 sec
+New best validation top1 error: 0.364
+**************** train *****************
+518.4s	train	57/150: loss: 1.663, l2_loss: 2455699.863, total_loss: 1.663, top1_error: 0.389, top5_error: 0.174
+func:'run_one_epoch' took: 518.3876 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	57/150: loss: 3.402, l2_loss: 2522598.0, total_loss: 3.402, top1_error: 0.373, top5_error: 0.15, best_val: 0.364
+func:'run_one_epoch' took: 15.3351 sec
+**************** train *****************
+518.1s	train	58/150: loss: 1.66, l2_loss: 2451165.76, total_loss: 1.66, top1_error: 0.388, top5_error: 0.174
+func:'run_one_epoch' took: 518.1069 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.0s	val	58/150: loss: 3.407, l2_loss: 2416701.5, total_loss: 3.407, top1_error: 0.382, top5_error: 0.154, best_val: 0.364
+func:'run_one_epoch' took: 14.9819 sec
+**************** train *****************
+521.9s	train	59/150: loss: 1.654, l2_loss: 2383494.845, total_loss: 1.654, top1_error: 0.387, top5_error: 0.173
+func:'run_one_epoch' took: 521.8671 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	59/150: loss: 3.352, l2_loss: 2392789.25, total_loss: 3.352, top1_error: 0.368, top5_error: 0.146, best_val: 0.364
+func:'run_one_epoch' took: 15.2056 sec
+**************** train *****************
+519.0s	train	60/150: loss: 1.65, l2_loss: 2426814.948, total_loss: 1.65, top1_error: 0.385, top5_error: 0.172
+func:'run_one_epoch' took: 519.0402 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	60/150: loss: 3.351, l2_loss: 2458212.0, total_loss: 3.351, top1_error: 0.359, top5_error: 0.141, best_val: 0.364
+func:'run_one_epoch' took: 15.1449 sec
+New best validation top1 error: 0.359
+**************** train *****************
+519.6s	train	61/150: loss: 1.644, l2_loss: 2443922.85, total_loss: 1.644, top1_error: 0.384, top5_error: 0.172
+func:'run_one_epoch' took: 519.5872 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.8s	val	61/150: loss: 3.299, l2_loss: 2402851.25, total_loss: 3.299, top1_error: 0.37, top5_error: 0.149, best_val: 0.359
+func:'run_one_epoch' took: 15.7889 sec
+**************** train *****************
+520.5s	train	62/150: loss: 1.639, l2_loss: 2446588.389, total_loss: 1.639, top1_error: 0.383, top5_error: 0.171
+func:'run_one_epoch' took: 520.5444 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	62/150: loss: 3.394, l2_loss: 2379073.5, total_loss: 3.394, top1_error: 0.364, top5_error: 0.145, best_val: 0.359
+func:'run_one_epoch' took: 15.0911 sec
+**************** train *****************
+520.5s	train	63/150: loss: 1.634, l2_loss: 2441856.729, total_loss: 1.634, top1_error: 0.383, top5_error: 0.17
+func:'run_one_epoch' took: 520.4922 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	63/150: loss: 3.446, l2_loss: 2396207.0, total_loss: 3.446, top1_error: 0.372, top5_error: 0.149, best_val: 0.359
+func:'run_one_epoch' took: 15.1279 sec
+**************** train *****************
+521.7s	train	64/150: loss: 1.628, l2_loss: 2407513.798, total_loss: 1.628, top1_error: 0.381, top5_error: 0.169
+func:'run_one_epoch' took: 521.6781 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	64/150: loss: 3.374, l2_loss: 2309139.25, total_loss: 3.374, top1_error: 0.364, top5_error: 0.145, best_val: 0.359
+func:'run_one_epoch' took: 15.4327 sec
+**************** train *****************
+517.9s	train	65/150: loss: 1.62, l2_loss: 2381264.018, total_loss: 1.62, top1_error: 0.379, top5_error: 0.168
+func:'run_one_epoch' took: 517.8540 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	65/150: loss: 3.461, l2_loss: 2364305.75, total_loss: 3.461, top1_error: 0.371, top5_error: 0.146, best_val: 0.359
+func:'run_one_epoch' took: 15.2298 sec
+**************** train *****************
+520.6s	train	66/150: loss: 1.617, l2_loss: 2435372.702, total_loss: 1.617, top1_error: 0.379, top5_error: 0.168
+func:'run_one_epoch' took: 520.6162 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	66/150: loss: 3.332, l2_loss: 2504047.75, total_loss: 3.332, top1_error: 0.356, top5_error: 0.14, best_val: 0.359
+func:'run_one_epoch' took: 15.2956 sec
+New best validation top1 error: 0.356
+**************** train *****************
+521.3s	train	67/150: loss: 1.613, l2_loss: 2474958.399, total_loss: 1.613, top1_error: 0.378, top5_error: 0.167
+func:'run_one_epoch' took: 521.3176 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	67/150: loss: 3.612, l2_loss: 2499252.25, total_loss: 3.612, top1_error: 0.362, top5_error: 0.141, best_val: 0.356
+func:'run_one_epoch' took: 15.2533 sec
+**************** train *****************
+521.2s	train	68/150: loss: 1.606, l2_loss: 2454902.389, total_loss: 1.606, top1_error: 0.377, top5_error: 0.166
+func:'run_one_epoch' took: 521.2341 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	68/150: loss: 3.458, l2_loss: 2384287.0, total_loss: 3.458, top1_error: 0.364, top5_error: 0.144, best_val: 0.356
+func:'run_one_epoch' took: 15.2827 sec
+**************** train *****************
+521.2s	train	69/150: loss: 1.601, l2_loss: 2450503.038, total_loss: 1.601, top1_error: 0.375, top5_error: 0.166
+func:'run_one_epoch' took: 521.1876 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	69/150: loss: 3.522, l2_loss: 2502171.75, total_loss: 3.522, top1_error: 0.359, top5_error: 0.14, best_val: 0.356
+func:'run_one_epoch' took: 15.1900 sec
+**************** train *****************
+520.6s	train	70/150: loss: 1.593, l2_loss: 2469151.344, total_loss: 1.593, top1_error: 0.374, top5_error: 0.164
+func:'run_one_epoch' took: 520.5792 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.6s	val	70/150: loss: 3.494, l2_loss: 2435854.25, total_loss: 3.494, top1_error: 0.354, top5_error: 0.136, best_val: 0.356
+func:'run_one_epoch' took: 15.6054 sec
+New best validation top1 error: 0.354
+**************** train *****************
+521.3s	train	71/150: loss: 1.589, l2_loss: 2477917.004, total_loss: 1.589, top1_error: 0.373, top5_error: 0.164
+func:'run_one_epoch' took: 521.3163 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	71/150: loss: 3.484, l2_loss: 2500830.5, total_loss: 3.484, top1_error: 0.358, top5_error: 0.14, best_val: 0.354
+func:'run_one_epoch' took: 15.1872 sec
+**************** train *****************
+520.9s	train	72/150: loss: 1.584, l2_loss: 2524979.488, total_loss: 1.584, top1_error: 0.372, top5_error: 0.164
+func:'run_one_epoch' took: 520.8599 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.5s	val	72/150: loss: 3.53, l2_loss: 2503624.75, total_loss: 3.53, top1_error: 0.36, top5_error: 0.139, best_val: 0.354
+func:'run_one_epoch' took: 15.5153 sec
+**************** train *****************
+520.1s	train	73/150: loss: 1.577, l2_loss: 2549243.972, total_loss: 1.577, top1_error: 0.371, top5_error: 0.162
+func:'run_one_epoch' took: 520.1335 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	73/150: loss: 3.413, l2_loss: 2517730.0, total_loss: 3.413, top1_error: 0.36, top5_error: 0.142, best_val: 0.354
+func:'run_one_epoch' took: 15.1293 sec
+**************** train *****************
+520.3s	train	74/150: loss: 1.569, l2_loss: 2506051.575, total_loss: 1.569, top1_error: 0.368, top5_error: 0.161
+func:'run_one_epoch' took: 520.2902 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	74/150: loss: 3.495, l2_loss: 2504065.25, total_loss: 3.495, top1_error: 0.357, top5_error: 0.139, best_val: 0.354
+func:'run_one_epoch' took: 15.1040 sec
+**************** train *****************
+519.3s	train	75/150: loss: 1.565, l2_loss: 2578154.191, total_loss: 1.565, top1_error: 0.368, top5_error: 0.161
+func:'run_one_epoch' took: 519.3225 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	75/150: loss: 3.392, l2_loss: 2612249.75, total_loss: 3.392, top1_error: 0.347, top5_error: 0.132, best_val: 0.354
+func:'run_one_epoch' took: 15.0963 sec
+New best validation top1 error: 0.347
+**************** train *****************
+521.6s	train	76/150: loss: 1.556, l2_loss: 2560103.208, total_loss: 1.556, top1_error: 0.366, top5_error: 0.159
+func:'run_one_epoch' took: 521.5582 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.6s	val	76/150: loss: 3.67, l2_loss: 2480482.25, total_loss: 3.67, top1_error: 0.359, top5_error: 0.14, best_val: 0.347
+func:'run_one_epoch' took: 15.6038 sec
+**************** train *****************
+521.0s	train	77/150: loss: 1.554, l2_loss: 2498782.219, total_loss: 1.554, top1_error: 0.366, top5_error: 0.159
+func:'run_one_epoch' took: 520.9858 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	77/150: loss: 3.57, l2_loss: 2415241.5, total_loss: 3.57, top1_error: 0.356, top5_error: 0.139, best_val: 0.347
+func:'run_one_epoch' took: 15.3966 sec
+**************** train *****************
+519.9s	train	78/150: loss: 1.545, l2_loss: 2538222.464, total_loss: 1.545, top1_error: 0.364, top5_error: 0.158
+func:'run_one_epoch' took: 519.8942 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.0s	val	78/150: loss: 3.544, l2_loss: 2507284.75, total_loss: 3.544, top1_error: 0.346, top5_error: 0.135, best_val: 0.347
+func:'run_one_epoch' took: 15.0290 sec
+New best validation top1 error: 0.346
+**************** train *****************
+520.6s	train	79/150: loss: 1.536, l2_loss: 2552360.377, total_loss: 1.536, top1_error: 0.362, top5_error: 0.157
+func:'run_one_epoch' took: 520.6349 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+14.9s	val	79/150: loss: 3.554, l2_loss: 2497061.0, total_loss: 3.554, top1_error: 0.347, top5_error: 0.133, best_val: 0.346
+func:'run_one_epoch' took: 14.9318 sec
+**************** train *****************
+521.2s	train	80/150: loss: 1.532, l2_loss: 2587480.367, total_loss: 1.532, top1_error: 0.361, top5_error: 0.156
+func:'run_one_epoch' took: 521.2047 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	80/150: loss: 3.672, l2_loss: 2538294.75, total_loss: 3.672, top1_error: 0.354, top5_error: 0.137, best_val: 0.346
+func:'run_one_epoch' took: 15.0837 sec
+**************** train *****************
+519.8s	train	81/150: loss: 1.525, l2_loss: 2599615.753, total_loss: 1.525, top1_error: 0.36, top5_error: 0.155
+func:'run_one_epoch' took: 519.7835 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	81/150: loss: 3.614, l2_loss: 2631207.0, total_loss: 3.614, top1_error: 0.339, top5_error: 0.13, best_val: 0.346
+func:'run_one_epoch' took: 15.0921 sec
+New best validation top1 error: 0.339
+**************** train *****************
+518.1s	train	82/150: loss: 1.518, l2_loss: 2645210.772, total_loss: 1.518, top1_error: 0.358, top5_error: 0.154
+func:'run_one_epoch' took: 518.1039 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.5s	val	82/150: loss: 3.652, l2_loss: 2616369.75, total_loss: 3.652, top1_error: 0.349, top5_error: 0.135, best_val: 0.339
+func:'run_one_epoch' took: 15.5346 sec
+**************** train *****************
+521.9s	train	83/150: loss: 1.51, l2_loss: 2685212.11, total_loss: 1.51, top1_error: 0.357, top5_error: 0.153
+func:'run_one_epoch' took: 521.8595 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	83/150: loss: 3.702, l2_loss: 2693826.0, total_loss: 3.702, top1_error: 0.352, top5_error: 0.135, best_val: 0.339
+func:'run_one_epoch' took: 15.4251 sec
+**************** train *****************
+521.0s	train	84/150: loss: 1.504, l2_loss: 2717070.974, total_loss: 1.504, top1_error: 0.356, top5_error: 0.152
+func:'run_one_epoch' took: 520.9637 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	84/150: loss: 3.661, l2_loss: 2633895.25, total_loss: 3.661, top1_error: 0.347, top5_error: 0.132, best_val: 0.339
+func:'run_one_epoch' took: 15.2924 sec
+**************** train *****************
+517.6s	train	85/150: loss: 1.496, l2_loss: 2634748.892, total_loss: 1.496, top1_error: 0.353, top5_error: 0.151
+func:'run_one_epoch' took: 517.5757 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	85/150: loss: 3.654, l2_loss: 2613078.75, total_loss: 3.654, top1_error: 0.347, top5_error: 0.134, best_val: 0.339
+func:'run_one_epoch' took: 15.2470 sec
+**************** train *****************
+518.1s	train	86/150: loss: 1.491, l2_loss: 2660016.125, total_loss: 1.491, top1_error: 0.353, top5_error: 0.151
+func:'run_one_epoch' took: 518.1160 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.5s	val	86/150: loss: 3.577, l2_loss: 2650614.0, total_loss: 3.577, top1_error: 0.344, top5_error: 0.131, best_val: 0.339
+func:'run_one_epoch' took: 15.4600 sec
+**************** train *****************
+518.1s	train	87/150: loss: 1.481, l2_loss: 2684750.275, total_loss: 1.481, top1_error: 0.351, top5_error: 0.149
+func:'run_one_epoch' took: 518.1286 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.7s	val	87/150: loss: 3.654, l2_loss: 2710850.75, total_loss: 3.654, top1_error: 0.343, top5_error: 0.129, best_val: 0.339
+func:'run_one_epoch' took: 15.6852 sec
+**************** train *****************
+520.8s	train	88/150: loss: 1.475, l2_loss: 2685185.467, total_loss: 1.475, top1_error: 0.35, top5_error: 0.148
+func:'run_one_epoch' took: 520.7583 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	88/150: loss: 3.658, l2_loss: 2652340.75, total_loss: 3.658, top1_error: 0.338, top5_error: 0.13, best_val: 0.339
+func:'run_one_epoch' took: 15.0916 sec
+New best validation top1 error: 0.338
+**************** train *****************
+522.4s	train	89/150: loss: 1.468, l2_loss: 2696618.084, total_loss: 1.468, top1_error: 0.348, top5_error: 0.148
+func:'run_one_epoch' took: 522.3834 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	89/150: loss: 3.745, l2_loss: 2552111.75, total_loss: 3.745, top1_error: 0.338, top5_error: 0.125, best_val: 0.338
+func:'run_one_epoch' took: 15.2313 sec
+**************** train *****************
+520.9s	train	90/150: loss: 1.457, l2_loss: 2636593.062, total_loss: 1.457, top1_error: 0.345, top5_error: 0.146
+func:'run_one_epoch' took: 520.8966 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	90/150: loss: 3.675, l2_loss: 2546595.75, total_loss: 3.675, top1_error: 0.336, top5_error: 0.126, best_val: 0.338
+func:'run_one_epoch' took: 15.3303 sec
+New best validation top1 error: 0.336
+**************** train *****************
+521.7s	train	91/150: loss: 1.451, l2_loss: 2593436.734, total_loss: 1.451, top1_error: 0.344, top5_error: 0.145
+func:'run_one_epoch' took: 521.7504 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.8s	val	91/150: loss: 3.707, l2_loss: 2536142.5, total_loss: 3.707, top1_error: 0.333, top5_error: 0.123, best_val: 0.336
+func:'run_one_epoch' took: 15.7874 sec
+New best validation top1 error: 0.333
+**************** train *****************
+521.8s	train	92/150: loss: 1.439, l2_loss: 2577510.131, total_loss: 1.439, top1_error: 0.342, top5_error: 0.144
+func:'run_one_epoch' took: 521.8390 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	92/150: loss: 3.739, l2_loss: 2581116.75, total_loss: 3.739, top1_error: 0.335, top5_error: 0.126, best_val: 0.333
+func:'run_one_epoch' took: 15.2791 sec
+**************** train *****************
+519.5s	train	93/150: loss: 1.436, l2_loss: 2646037.691, total_loss: 1.436, top1_error: 0.341, top5_error: 0.143
+func:'run_one_epoch' took: 519.4884 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	93/150: loss: 3.744, l2_loss: 2628780.5, total_loss: 3.744, top1_error: 0.339, top5_error: 0.131, best_val: 0.333
+func:'run_one_epoch' took: 15.3743 sec
+**************** train *****************
+518.2s	train	94/150: loss: 1.426, l2_loss: 2692978.131, total_loss: 1.426, top1_error: 0.339, top5_error: 0.142
+func:'run_one_epoch' took: 518.1880 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	94/150: loss: 3.724, l2_loss: 2623848.0, total_loss: 3.724, top1_error: 0.328, top5_error: 0.121, best_val: 0.333
+func:'run_one_epoch' took: 15.2329 sec
+New best validation top1 error: 0.328
+**************** train *****************
+518.6s	train	95/150: loss: 1.418, l2_loss: 2711097.616, total_loss: 1.418, top1_error: 0.337, top5_error: 0.141
+func:'run_one_epoch' took: 518.6489 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.6s	val	95/150: loss: 3.767, l2_loss: 2690449.0, total_loss: 3.767, top1_error: 0.333, top5_error: 0.125, best_val: 0.328
+func:'run_one_epoch' took: 15.6274 sec
+**************** train *****************
+520.3s	train	96/150: loss: 1.409, l2_loss: 2738159.357, total_loss: 1.409, top1_error: 0.335, top5_error: 0.14
+func:'run_one_epoch' took: 520.3022 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	96/150: loss: 3.899, l2_loss: 2738091.75, total_loss: 3.899, top1_error: 0.339, top5_error: 0.131, best_val: 0.328
+func:'run_one_epoch' took: 15.4007 sec
+**************** train *****************
+522.2s	train	97/150: loss: 1.399, l2_loss: 2754927.454, total_loss: 1.399, top1_error: 0.333, top5_error: 0.139
+func:'run_one_epoch' took: 522.2075 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	97/150: loss: 3.73, l2_loss: 2716025.0, total_loss: 3.73, top1_error: 0.324, top5_error: 0.118, best_val: 0.328
+func:'run_one_epoch' took: 15.3365 sec
+New best validation top1 error: 0.324
+**************** train *****************
+519.9s	train	98/150: loss: 1.392, l2_loss: 2732118.655, total_loss: 1.392, top1_error: 0.332, top5_error: 0.138
+func:'run_one_epoch' took: 519.8947 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	98/150: loss: 3.872, l2_loss: 2713207.5, total_loss: 3.872, top1_error: 0.329, top5_error: 0.122, best_val: 0.324
+func:'run_one_epoch' took: 15.1756 sec
+**************** train *****************
+519.9s	train	99/150: loss: 1.385, l2_loss: 2715480.922, total_loss: 1.385, top1_error: 0.33, top5_error: 0.137
+func:'run_one_epoch' took: 519.8705 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	99/150: loss: 3.838, l2_loss: 2677320.75, total_loss: 3.838, top1_error: 0.324, top5_error: 0.119, best_val: 0.324
+func:'run_one_epoch' took: 15.2197 sec
+**************** train *****************
+520.1s	train	100/150: loss: 1.375, l2_loss: 2654893.383, total_loss: 1.375, top1_error: 0.328, top5_error: 0.135
+func:'run_one_epoch' took: 520.0915 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	100/150: loss: 3.821, l2_loss: 2621870.0, total_loss: 3.821, top1_error: 0.324, top5_error: 0.119, best_val: 0.324
+func:'run_one_epoch' took: 15.1331 sec
+**************** train *****************
+522.0s	train	101/150: loss: 1.367, l2_loss: 2656372.518, total_loss: 1.367, top1_error: 0.326, top5_error: 0.134
+func:'run_one_epoch' took: 521.9938 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	101/150: loss: 3.927, l2_loss: 2664375.0, total_loss: 3.927, top1_error: 0.335, top5_error: 0.123, best_val: 0.324
+func:'run_one_epoch' took: 15.4317 sec
+**************** train *****************
+520.2s	train	102/150: loss: 1.356, l2_loss: 2739849.227, total_loss: 1.356, top1_error: 0.324, top5_error: 0.133
+func:'run_one_epoch' took: 520.2355 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.7s	val	102/150: loss: 3.884, l2_loss: 2734014.25, total_loss: 3.884, top1_error: 0.321, top5_error: 0.118, best_val: 0.324
+func:'run_one_epoch' took: 15.6588 sec
+New best validation top1 error: 0.321
+**************** train *****************
+518.1s	train	103/150: loss: 1.35, l2_loss: 2740791.784, total_loss: 1.35, top1_error: 0.323, top5_error: 0.132
+func:'run_one_epoch' took: 518.1494 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	103/150: loss: 3.89, l2_loss: 2666448.0, total_loss: 3.89, top1_error: 0.316, top5_error: 0.114, best_val: 0.321
+func:'run_one_epoch' took: 15.2028 sec
+New best validation top1 error: 0.316
+**************** train *****************
+520.3s	train	104/150: loss: 1.341, l2_loss: 2713235.596, total_loss: 1.341, top1_error: 0.32, top5_error: 0.131
+func:'run_one_epoch' took: 520.2627 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.6s	val	104/150: loss: 3.909, l2_loss: 2649752.0, total_loss: 3.909, top1_error: 0.319, top5_error: 0.117, best_val: 0.316
+func:'run_one_epoch' took: 15.6464 sec
+**************** train *****************
+522.1s	train	105/150: loss: 1.327, l2_loss: 2710853.964, total_loss: 1.327, top1_error: 0.318, top5_error: 0.129
+func:'run_one_epoch' took: 522.0515 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	105/150: loss: 3.935, l2_loss: 2700116.5, total_loss: 3.935, top1_error: 0.318, top5_error: 0.115, best_val: 0.316
+func:'run_one_epoch' took: 15.2588 sec
+**************** train *****************
+520.7s	train	106/150: loss: 1.319, l2_loss: 2683359.282, total_loss: 1.319, top1_error: 0.316, top5_error: 0.128
+func:'run_one_epoch' took: 520.7288 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.7s	val	106/150: loss: 3.997, l2_loss: 2580422.25, total_loss: 3.997, top1_error: 0.315, top5_error: 0.114, best_val: 0.316
+func:'run_one_epoch' took: 15.6917 sec
+New best validation top1 error: 0.315
+**************** train *****************
+522.8s	train	107/150: loss: 1.31, l2_loss: 2646947.027, total_loss: 1.31, top1_error: 0.314, top5_error: 0.127
+func:'run_one_epoch' took: 522.7915 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	107/150: loss: 3.969, l2_loss: 2619421.25, total_loss: 3.969, top1_error: 0.313, top5_error: 0.113, best_val: 0.315
+func:'run_one_epoch' took: 15.3598 sec
+New best validation top1 error: 0.313
+**************** train *****************
+520.2s	train	108/150: loss: 1.302, l2_loss: 2690347.763, total_loss: 1.302, top1_error: 0.312, top5_error: 0.126
+func:'run_one_epoch' took: 520.1688 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.5s	val	108/150: loss: 3.964, l2_loss: 2629988.0, total_loss: 3.964, top1_error: 0.312, top5_error: 0.111, best_val: 0.313
+func:'run_one_epoch' took: 15.4546 sec
+New best validation top1 error: 0.312
+**************** train *****************
+519.8s	train	109/150: loss: 1.292, l2_loss: 2626255.439, total_loss: 1.292, top1_error: 0.31, top5_error: 0.125
+func:'run_one_epoch' took: 519.7717 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	109/150: loss: 3.982, l2_loss: 2599321.75, total_loss: 3.982, top1_error: 0.312, top5_error: 0.113, best_val: 0.312
+func:'run_one_epoch' took: 15.4083 sec
+**************** train *****************
+520.3s	train	110/150: loss: 1.282, l2_loss: 2654062.552, total_loss: 1.282, top1_error: 0.308, top5_error: 0.124
+func:'run_one_epoch' took: 520.3390 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	110/150: loss: 3.976, l2_loss: 2657947.75, total_loss: 3.976, top1_error: 0.31, top5_error: 0.113, best_val: 0.312
+func:'run_one_epoch' took: 15.2708 sec
+New best validation top1 error: 0.310
+**************** train *****************
+518.6s	train	111/150: loss: 1.272, l2_loss: 2716780.253, total_loss: 1.272, top1_error: 0.306, top5_error: 0.122
+func:'run_one_epoch' took: 518.5661 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	111/150: loss: 4.065, l2_loss: 2709229.75, total_loss: 4.065, top1_error: 0.31, top5_error: 0.113, best_val: 0.31
+func:'run_one_epoch' took: 15.0759 sec
+**************** train *****************
+518.7s	train	112/150: loss: 1.264, l2_loss: 2714231.419, total_loss: 1.264, top1_error: 0.304, top5_error: 0.121
+func:'run_one_epoch' took: 518.7151 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	112/150: loss: 4.035, l2_loss: 2680028.0, total_loss: 4.035, top1_error: 0.31, top5_error: 0.112, best_val: 0.31
+func:'run_one_epoch' took: 15.2102 sec
+**************** train *****************
+520.2s	train	113/150: loss: 1.25, l2_loss: 2687675.779, total_loss: 1.25, top1_error: 0.301, top5_error: 0.119
+func:'run_one_epoch' took: 520.2176 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	113/150: loss: 3.97, l2_loss: 2644314.25, total_loss: 3.97, top1_error: 0.306, top5_error: 0.108, best_val: 0.31
+func:'run_one_epoch' took: 15.0865 sec
+New best validation top1 error: 0.306
+**************** train *****************
+519.6s	train	114/150: loss: 1.24, l2_loss: 2689223.909, total_loss: 1.24, top1_error: 0.299, top5_error: 0.118
+func:'run_one_epoch' took: 519.6394 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	114/150: loss: 4.083, l2_loss: 2681103.5, total_loss: 4.083, top1_error: 0.306, top5_error: 0.11, best_val: 0.306
+func:'run_one_epoch' took: 15.2279 sec
+**************** train *****************
+520.0s	train	115/150: loss: 1.232, l2_loss: 2678619.363, total_loss: 1.232, top1_error: 0.297, top5_error: 0.117
+func:'run_one_epoch' took: 519.9765 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	115/150: loss: 4.079, l2_loss: 2658006.25, total_loss: 4.079, top1_error: 0.305, top5_error: 0.107, best_val: 0.306
+func:'run_one_epoch' took: 15.2142 sec
+New best validation top1 error: 0.305
+**************** train *****************
+518.8s	train	116/150: loss: 1.222, l2_loss: 2684293.746, total_loss: 1.222, top1_error: 0.295, top5_error: 0.116
+func:'run_one_epoch' took: 518.7846 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	116/150: loss: 4.071, l2_loss: 2651268.75, total_loss: 4.071, top1_error: 0.307, top5_error: 0.109, best_val: 0.305
+func:'run_one_epoch' took: 15.3101 sec
+**************** train *****************
+519.0s	train	117/150: loss: 1.211, l2_loss: 2674069.38, total_loss: 1.211, top1_error: 0.291, top5_error: 0.114
+func:'run_one_epoch' took: 519.0249 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	117/150: loss: 4.081, l2_loss: 2600550.0, total_loss: 4.081, top1_error: 0.301, top5_error: 0.107, best_val: 0.305
+func:'run_one_epoch' took: 15.0636 sec
+New best validation top1 error: 0.301
+**************** train *****************
+519.8s	train	118/150: loss: 1.201, l2_loss: 2633041.244, total_loss: 1.201, top1_error: 0.29, top5_error: 0.113
+func:'run_one_epoch' took: 519.7832 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	118/150: loss: 4.119, l2_loss: 2601800.25, total_loss: 4.119, top1_error: 0.302, top5_error: 0.106, best_val: 0.301
+func:'run_one_epoch' took: 15.2112 sec
+**************** train *****************
+519.8s	train	119/150: loss: 1.189, l2_loss: 2644584.786, total_loss: 1.189, top1_error: 0.287, top5_error: 0.112
+func:'run_one_epoch' took: 519.8338 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.5s	val	119/150: loss: 4.064, l2_loss: 2619323.0, total_loss: 4.064, top1_error: 0.297, top5_error: 0.104, best_val: 0.301
+func:'run_one_epoch' took: 15.4533 sec
+New best validation top1 error: 0.297
+**************** train *****************
+519.3s	train	120/150: loss: 1.18, l2_loss: 2633849.002, total_loss: 1.18, top1_error: 0.285, top5_error: 0.111
+func:'run_one_epoch' took: 519.2546 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.9s	val	120/150: loss: 4.146, l2_loss: 2585569.0, total_loss: 4.146, top1_error: 0.297, top5_error: 0.105, best_val: 0.297
+func:'run_one_epoch' took: 15.8844 sec
+**************** train *****************
+522.5s	train	121/150: loss: 1.168, l2_loss: 2618538.234, total_loss: 1.168, top1_error: 0.282, top5_error: 0.109
+func:'run_one_epoch' took: 522.5323 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+14.9s	val	121/150: loss: 4.144, l2_loss: 2570635.0, total_loss: 4.144, top1_error: 0.294, top5_error: 0.104, best_val: 1.0
+func:'run_one_epoch' took: 14.9438 sec
+New best validation top1 error: 0.294
+**************** train *****************
+521.0s	train	122/150: loss: 1.159, l2_loss: 2558362.038, total_loss: 1.159, top1_error: 0.28, top5_error: 0.108
+func:'run_one_epoch' took: 520.9568 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.0s	val	122/150: loss: 4.169, l2_loss: 2512033.5, total_loss: 4.169, top1_error: 0.295, top5_error: 0.103, best_val: 0.294
+func:'run_one_epoch' took: 15.0274 sec
+**************** train *****************
+519.3s	train	123/150: loss: 1.148, l2_loss: 2554036.901, total_loss: 1.148, top1_error: 0.277, top5_error: 0.107
+func:'run_one_epoch' took: 519.2787 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	123/150: loss: 4.159, l2_loss: 2546992.75, total_loss: 4.159, top1_error: 0.293, top5_error: 0.102, best_val: 0.294
+func:'run_one_epoch' took: 15.3211 sec
+New best validation top1 error: 0.293
+**************** train *****************
+517.8s	train	124/150: loss: 1.139, l2_loss: 2562531.299, total_loss: 1.139, top1_error: 0.275, top5_error: 0.106
+func:'run_one_epoch' took: 517.7530 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	124/150: loss: 4.166, l2_loss: 2530383.0, total_loss: 4.166, top1_error: 0.291, top5_error: 0.102, best_val: 0.293
+func:'run_one_epoch' took: 15.4114 sec
+New best validation top1 error: 0.291
+**************** train *****************
+521.2s	train	125/150: loss: 1.126, l2_loss: 2518616.525, total_loss: 1.126, top1_error: 0.272, top5_error: 0.104
+func:'run_one_epoch' took: 521.2413 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	125/150: loss: 4.175, l2_loss: 2461923.0, total_loss: 4.175, top1_error: 0.294, top5_error: 0.103, best_val: 0.291
+func:'run_one_epoch' took: 15.4172 sec
+**************** train *****************
+518.2s	train	126/150: loss: 1.115, l2_loss: 2514014.563, total_loss: 1.115, top1_error: 0.269, top5_error: 0.102
+func:'run_one_epoch' took: 518.2001 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	126/150: loss: 4.216, l2_loss: 2515664.0, total_loss: 4.216, top1_error: 0.29, top5_error: 0.101, best_val: 0.291
+func:'run_one_epoch' took: 15.3208 sec
+New best validation top1 error: 0.290
+**************** train *****************
+520.8s	train	127/150: loss: 1.107, l2_loss: 2524307.538, total_loss: 1.107, top1_error: 0.268, top5_error: 0.102
+func:'run_one_epoch' took: 520.8035 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.5s	val	127/150: loss: 4.218, l2_loss: 2492362.0, total_loss: 4.218, top1_error: 0.29, top5_error: 0.099, best_val: 0.29
+func:'run_one_epoch' took: 15.5313 sec
+**************** train *****************
+518.9s	train	128/150: loss: 1.097, l2_loss: 2513439.485, total_loss: 1.097, top1_error: 0.266, top5_error: 0.101
+func:'run_one_epoch' took: 518.9041 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	128/150: loss: 4.208, l2_loss: 2472905.0, total_loss: 4.208, top1_error: 0.289, top5_error: 0.1, best_val: 0.29
+func:'run_one_epoch' took: 15.1387 sec
+New best validation top1 error: 0.289
+**************** train *****************
+518.4s	train	129/150: loss: 1.087, l2_loss: 2457693.915, total_loss: 1.087, top1_error: 0.263, top5_error: 0.099
+func:'run_one_epoch' took: 518.3686 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	129/150: loss: 4.178, l2_loss: 2408972.0, total_loss: 4.178, top1_error: 0.287, top5_error: 0.098, best_val: 0.289
+func:'run_one_epoch' took: 15.1710 sec
+New best validation top1 error: 0.287
+**************** train *****************
+519.6s	train	130/150: loss: 1.078, l2_loss: 2444834.034, total_loss: 1.078, top1_error: 0.261, top5_error: 0.099
+func:'run_one_epoch' took: 519.5883 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	130/150: loss: 4.225, l2_loss: 2442835.75, total_loss: 4.225, top1_error: 0.286, top5_error: 0.098, best_val: 0.287
+func:'run_one_epoch' took: 15.0966 sec
+New best validation top1 error: 0.286
+**************** train *****************
+519.5s	train	131/150: loss: 1.07, l2_loss: 2466959.246, total_loss: 1.07, top1_error: 0.259, top5_error: 0.098
+func:'run_one_epoch' took: 519.5002 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	131/150: loss: 4.204, l2_loss: 2436412.5, total_loss: 4.204, top1_error: 0.285, top5_error: 0.097, best_val: 0.286
+func:'run_one_epoch' took: 15.1930 sec
+New best validation top1 error: 0.285
+**************** train *****************
+517.6s	train	132/150: loss: 1.06, l2_loss: 2449323.869, total_loss: 1.06, top1_error: 0.256, top5_error: 0.096
+func:'run_one_epoch' took: 517.6478 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.5s	val	132/150: loss: 4.214, l2_loss: 2401107.0, total_loss: 4.214, top1_error: 0.284, top5_error: 0.096, best_val: 0.285
+func:'run_one_epoch' took: 15.5386 sec
+New best validation top1 error: 0.284
+**************** train *****************
+522.5s	train	133/150: loss: 1.051, l2_loss: 2438468.133, total_loss: 1.051, top1_error: 0.254, top5_error: 0.096
+func:'run_one_epoch' took: 522.5384 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	133/150: loss: 4.238, l2_loss: 2421551.25, total_loss: 4.238, top1_error: 0.283, top5_error: 0.096, best_val: 0.284
+func:'run_one_epoch' took: 15.1861 sec
+New best validation top1 error: 0.283
+**************** train *****************
+520.0s	train	134/150: loss: 1.043, l2_loss: 2433579.649, total_loss: 1.043, top1_error: 0.253, top5_error: 0.094
+func:'run_one_epoch' took: 520.0333 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.5s	val	134/150: loss: 4.249, l2_loss: 2380254.25, total_loss: 4.249, top1_error: 0.281, top5_error: 0.095, best_val: 0.283
+func:'run_one_epoch' took: 15.4685 sec
+New best validation top1 error: 0.281
+**************** train *****************
+521.2s	train	135/150: loss: 1.037, l2_loss: 2419870.393, total_loss: 1.037, top1_error: 0.251, top5_error: 0.094
+func:'run_one_epoch' took: 521.1712 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	135/150: loss: 4.237, l2_loss: 2392417.75, total_loss: 4.237, top1_error: 0.279, top5_error: 0.095, best_val: 0.281
+func:'run_one_epoch' took: 15.0741 sec
+New best validation top1 error: 0.279
+**************** train *****************
+519.8s	train	136/150: loss: 1.029, l2_loss: 2452403.091, total_loss: 1.029, top1_error: 0.249, top5_error: 0.093
+func:'run_one_epoch' took: 519.8376 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	136/150: loss: 4.253, l2_loss: 2420593.0, total_loss: 4.253, top1_error: 0.278, top5_error: 0.093, best_val: 0.279
+func:'run_one_epoch' took: 15.3760 sec
+New best validation top1 error: 0.278
+**************** train *****************
+520.3s	train	137/150: loss: 1.021, l2_loss: 2471517.043, total_loss: 1.021, top1_error: 0.247, top5_error: 0.092
+func:'run_one_epoch' took: 520.2683 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.0s	val	137/150: loss: 4.251, l2_loss: 2432326.25, total_loss: 4.251, top1_error: 0.28, top5_error: 0.095, best_val: 0.278
+func:'run_one_epoch' took: 14.9808 sec
+**************** train *****************
+521.4s	train	138/150: loss: 1.015, l2_loss: 2468473.755, total_loss: 1.015, top1_error: 0.245, top5_error: 0.091
+func:'run_one_epoch' took: 521.3673 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.3s	val	138/150: loss: 4.252, l2_loss: 2433544.25, total_loss: 4.252, top1_error: 0.279, top5_error: 0.094, best_val: 0.278
+func:'run_one_epoch' took: 15.3404 sec
+**************** train *****************
+521.0s	train	139/150: loss: 1.009, l2_loss: 2482942.288, total_loss: 1.009, top1_error: 0.244, top5_error: 0.091
+func:'run_one_epoch' took: 520.9529 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.9s	val	139/150: loss: 4.253, l2_loss: 2459381.25, total_loss: 4.253, top1_error: 0.275, top5_error: 0.092, best_val: 0.278
+func:'run_one_epoch' took: 15.8540 sec
+New best validation top1 error: 0.275
+**************** train *****************
+522.3s	train	140/150: loss: 1.002, l2_loss: 2474545.08, total_loss: 1.002, top1_error: 0.242, top5_error: 0.09
+func:'run_one_epoch' took: 522.2686 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.0s	val	140/150: loss: 4.252, l2_loss: 2438027.5, total_loss: 4.252, top1_error: 0.278, top5_error: 0.094, best_val: 0.275
+func:'run_one_epoch' took: 14.9711 sec
+**************** train *****************
+520.7s	train	141/150: loss: 0.997, l2_loss: 2469609.587, total_loss: 0.997, top1_error: 0.241, top5_error: 0.089
+func:'run_one_epoch' took: 520.7245 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.6s	val	141/150: loss: 4.256, l2_loss: 2444616.0, total_loss: 4.256, top1_error: 0.277, top5_error: 0.094, best_val: 0.275
+func:'run_one_epoch' took: 15.6280 sec
+**************** train *****************
+518.1s	train	142/150: loss: 0.993, l2_loss: 2468530.369, total_loss: 0.993, top1_error: 0.24, top5_error: 0.089
+func:'run_one_epoch' took: 518.1149 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.5s	val	142/150: loss: 4.257, l2_loss: 2428196.0, total_loss: 4.257, top1_error: 0.277, top5_error: 0.093, best_val: 0.275
+func:'run_one_epoch' took: 15.4697 sec
+**************** train *****************
+519.4s	train	143/150: loss: 0.986, l2_loss: 2456167.694, total_loss: 0.986, top1_error: 0.238, top5_error: 0.088
+func:'run_one_epoch' took: 519.3531 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.1s	val	143/150: loss: 4.235, l2_loss: 2416907.75, total_loss: 4.235, top1_error: 0.276, top5_error: 0.093, best_val: 0.275
+func:'run_one_epoch' took: 15.0694 sec
+**************** train *****************
+520.7s	train	144/150: loss: 0.983, l2_loss: 2450144.054, total_loss: 0.983, top1_error: 0.238, top5_error: 0.088
+func:'run_one_epoch' took: 520.7316 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+14.8s	val	144/150: loss: 4.22, l2_loss: 2414695.5, total_loss: 4.22, top1_error: 0.276, top5_error: 0.092, best_val: 0.275
+func:'run_one_epoch' took: 14.8146 sec
+**************** train *****************
+519.6s	train	145/150: loss: 0.98, l2_loss: 2451488.089, total_loss: 0.98, top1_error: 0.237, top5_error: 0.087
+func:'run_one_epoch' took: 519.5610 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	145/150: loss: 4.217, l2_loss: 2424773.5, total_loss: 4.217, top1_error: 0.275, top5_error: 0.091, best_val: 0.275
+func:'run_one_epoch' took: 15.2437 sec
+**************** train *****************
+519.7s	train	146/150: loss: 0.98, l2_loss: 2446246.642, total_loss: 0.98, top1_error: 0.237, top5_error: 0.087
+func:'run_one_epoch' took: 519.6607 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.0s	val	146/150: loss: 4.227, l2_loss: 2417299.25, total_loss: 4.227, top1_error: 0.275, top5_error: 0.091, best_val: 0.275
+func:'run_one_epoch' took: 15.0135 sec
+**************** train *****************
+518.1s	train	147/150: loss: 0.976, l2_loss: 2446976.968, total_loss: 0.976, top1_error: 0.236, top5_error: 0.087
+func:'run_one_epoch' took: 518.1284 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.4s	val	147/150: loss: 4.229, l2_loss: 2406902.5, total_loss: 4.229, top1_error: 0.275, top5_error: 0.093, best_val: 0.275
+func:'run_one_epoch' took: 15.3682 sec
+**************** train *****************
+519.3s	train	148/150: loss: 0.976, l2_loss: 2447019.906, total_loss: 0.976, top1_error: 0.236, top5_error: 0.087
+func:'run_one_epoch' took: 519.2844 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	148/150: loss: 4.211, l2_loss: 2410533.25, total_loss: 4.211, top1_error: 0.274, top5_error: 0.092, best_val: 0.275
+func:'run_one_epoch' took: 15.2438 sec
+New best validation top1 error: 0.274
+**************** train *****************
+518.8s	train	149/150: loss: 0.975, l2_loss: 2446514.401, total_loss: 0.975, top1_error: 0.235, top5_error: 0.087
+func:'run_one_epoch' took: 518.7569 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+15.2s	val	149/150: loss: 4.22, l2_loss: 2417054.0, total_loss: 4.22, top1_error: 0.275, top5_error: 0.091, best_val: 0.274
+func:'run_one_epoch' took: 15.2390 sec
+layer name: head.0.
+alpha: 8.0.
+master layer: None.
+alpha in use: 1.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: tensor([12.1618], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_0_layer_0.body.0.
+alpha: 12.114248275756836.
+master layer: None.
+alpha in use: 12.114248275756836.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([12.1618], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([0.1383], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 0.0.
+layer name: stage_0_layer_0.body.1.
+alpha: 17.634538650512695.
+master layer: None.
+alpha in use: 17.634538650512695.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([0.1383], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([0.2022], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([1.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_1_layer_0.body.0.
+alpha: 12.84187126159668.
+master layer: None.
+alpha in use: 12.84187126159668.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([0.2022], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([0.6064], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([1.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_1_layer_0.body.1.
+alpha: 9.664641380310059.
+master layer: None.
+alpha in use: 9.664641380310059.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([0.6064], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([11.3874], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_1_layer_0.body.2.
+alpha: 11.342947959899902.
+master layer: None.
+alpha in use: 11.342947959899902.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([11.3874], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([23.0825], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_1_layer_1.body.0.
+alpha: 22.902141571044922.
+master layer: None.
+alpha in use: 22.902141571044922.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([23.0825], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([2.9866], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([7.0000], device='cuda:0').
+weight_fraclen: 5.0.
+layer name: stage_1_layer_1.body.1.
+alpha: 11.899837493896484.
+master layer: None.
+alpha in use: 11.899837493896484.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([2.9866], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([12.7835], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_1_layer_1.body.2.
+alpha: 12.73351764678955.
+master layer: None.
+alpha in use: 12.73351764678955.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([12.7835], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([23.0825], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_0.body.0.
+alpha: 8.0.
+master layer alpha: 22.902141571044922.
+alpha in use: 22.902141571044922.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([23.0825], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([21.1095], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([7.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_0.body.1.
+alpha: 21.027069091796875.
+master layer: None.
+alpha in use: 21.027069091796875.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([21.1095], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([5.1557], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 0.0.
+layer name: stage_2_layer_0.body.2.
+alpha: 10.271186828613281.
+master layer: None.
+alpha in use: 10.271186828613281.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([5.1557], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([8.6915], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([7.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_1.body.0.
+alpha: 17.247222900390625.
+master layer: None.
+alpha in use: 17.247222900390625.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([8.6915], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([1.7322], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_1.body.1.
+alpha: 6.901750564575195.
+master layer: None.
+alpha in use: 6.901750564575195.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([1.7322], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([8.4378], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_1.body.2.
+alpha: 8.404809951782227.
+master layer: None.
+alpha in use: 8.404809951782227.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([8.4378], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([8.6915], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_2.body.0.
+alpha: 8.0.
+master layer alpha: 17.247222900390625.
+alpha in use: 17.247222900390625.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([8.6915], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([1.9871], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_2.body.1.
+alpha: 7.9171881675720215.
+master layer: None.
+alpha in use: 7.9171881675720215.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([1.9871], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([8.5273], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_2.body.2.
+alpha: 8.493974685668945.
+master layer: None.
+alpha in use: 8.493974685668945.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([8.5273], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([8.6915], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_0.body.0.
+alpha: 8.0.
+master layer alpha: 17.247222900390625.
+alpha in use: 17.247222900390625.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([8.6915], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([2.6852], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_0.body.1.
+alpha: 10.699007034301758.
+master layer: None.
+alpha in use: 10.699007034301758.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([2.6852], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([10.4873], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_0.body.2.
+alpha: 10.446352005004883.
+master layer: None.
+alpha in use: 10.446352005004883.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([10.4873], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([8.9360], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_1.body.0.
+alpha: 17.732349395751953.
+master layer: None.
+alpha in use: 17.732349395751953.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([8.9360], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([1.9024], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_1.body.1.
+alpha: 7.580021858215332.
+master layer: None.
+alpha in use: 7.580021858215332.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([1.9024], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([7.1200], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_1.body.2.
+alpha: 7.092165470123291.
+master layer: None.
+alpha in use: 7.092165470123291.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([7.1200], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([8.9360], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_2.body.0.
+alpha: 8.0.
+master layer alpha: 17.732349395751953.
+alpha in use: 17.732349395751953.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([8.9360], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([8.9626], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_2.body.1.
+alpha: 8.927596092224121.
+master layer: None.
+alpha in use: 8.927596092224121.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([8.9626], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([1.6079], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 0.0.
+layer name: stage_3_layer_2.body.2.
+alpha: 6.406413555145264.
+master layer: None.
+alpha in use: 6.406413555145264.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([1.6079], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([8.9360], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_3.body.0.
+alpha: 8.0.
+master layer alpha: 17.732349395751953.
+alpha in use: 17.732349395751953.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([8.9360], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([1.7763], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_3.body.1.
+alpha: 7.077484607696533.
+master layer: None.
+alpha in use: 7.077484607696533.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([1.7763], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([8.8350], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_3.body.2.
+alpha: 8.800485610961914.
+master layer: None.
+alpha in use: 8.800485610961914.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([8.8350], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([8.9360], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_4_layer_0.body.0.
+alpha: 8.0.
+master layer alpha: 17.732349395751953.
+alpha in use: 17.732349395751953.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([8.9360], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([2.4460], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_4_layer_0.body.1.
+alpha: 9.745868682861328.
+master layer: None.
+alpha in use: 9.745868682861328.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([2.4460], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([13.2308], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_4_layer_0.body.2.
+alpha: 13.17910099029541.
+master layer: None.
+alpha in use: 13.17910099029541.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([13.2308], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([19.5971], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_4_layer_1.body.0.
+alpha: 19.4439697265625.
+master layer: None.
+alpha in use: 19.4439697265625.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([19.5971], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([15.8080], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([7.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_4_layer_1.body.1.
+alpha: 15.746270179748535.
+master layer: None.
+alpha in use: 15.746270179748535.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([15.8080], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([6.8397], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 1.0.
+layer name: stage_4_layer_1.body.2.
+alpha: 6.812946319580078.
+master layer: None.
+alpha in use: 6.812946319580078.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([6.8397], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([19.5971], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_4_layer_2.body.0.
+alpha: 8.0.
+master layer alpha: 19.4439697265625.
+alpha in use: 19.4439697265625.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([19.5971], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([15.0188], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([7.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_4_layer_2.body.1.
+alpha: 14.960100173950195.
+master layer: None.
+alpha in use: 14.960100173950195.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([15.0188], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([6.6410], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 1.0.
+layer name: stage_4_layer_2.body.2.
+alpha: 6.6150712966918945.
+master layer: None.
+alpha in use: 6.6150712966918945.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([6.6410], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([19.5971], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_5_layer_0.body.0.
+alpha: 8.0.
+master layer alpha: 19.4439697265625.
+alpha in use: 19.4439697265625.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([19.5971], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([6.6242], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([7.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_5_layer_0.body.1.
+alpha: 6.598289489746094.
+master layer: None.
+alpha in use: 6.598289489746094.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([6.6242], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([17.4084], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_5_layer_0.body.2.
+alpha: 17.340436935424805.
+master layer: None.
+alpha in use: 17.340436935424805.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([17.4084], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([19.9010], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_5_layer_1.body.0.
+alpha: 19.745485305786133.
+master layer: None.
+alpha in use: 19.745485305786133.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([19.9010], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([7.0310], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([7.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_5_layer_1.body.1.
+alpha: 7.003530979156494.
+master layer: None.
+alpha in use: 7.003530979156494.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([7.0310], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([12.1911], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 6.0.
+layer name: stage_5_layer_1.body.2.
+alpha: 12.143460273742676.
+master layer: None.
+alpha in use: 12.143460273742676.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([12.1911], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([19.9010], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_5_layer_2.body.0.
+alpha: 8.0.
+master layer alpha: 19.745485305786133.
+alpha in use: 19.745485305786133.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([19.9010], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([16.1106], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([7.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_5_layer_2.body.1.
+alpha: 16.047700881958008.
+master layer: None.
+alpha in use: 16.047700881958008.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([16.1106], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([3.7429], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 0.0.
+layer name: stage_5_layer_2.body.2.
+alpha: 7.456567764282227.
+master layer: None.
+alpha in use: 7.456567764282227.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([3.7429], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([19.9010], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([7.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_6_layer_0.body.0.
+alpha: 8.0.
+master layer alpha: 19.745485305786133.
+alpha in use: 19.745485305786133.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([19.9010], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([7.7231], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([7.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_6_layer_0.body.1.
+alpha: 7.692927837371826.
+master layer: None.
+alpha in use: 7.692927837371826.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([7.7231], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([12.7908], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 6.0.
+layer name: stage_6_layer_0.body.2.
+alpha: 12.740860939025879.
+master layer: None.
+alpha in use: 12.740860939025879.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([12.7908], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([4.6794], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: tail.0.
+alpha: 9.285588264465332.
+master layer: None.
+alpha in use: 9.285588264465332.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([4.6794], device='cuda:0', grad_fn=<DivBackward0>).
+following layer fix scaling: tensor([11.3784], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([6.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: classifier.0.
+alpha: 11.333996772766113.
+master layer: None.
+alpha in use: 11.333996772766113.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: tensor([11.3784], device='cuda:0', grad_fn=<DivBackward0>).
+input_fraclen: tensor([8.0000], device='cuda:0').
+weight_fraclen: 7.0.
+func:'train_val_test' took: 81336.3131 sec
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************

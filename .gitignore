@@ -1,5 +1,13 @@
-*.DS_Store
-*.DS_Store?
+cache
+data
+exp
+logs
+results
+.flake8
+*.bak
 *.pyc
-.vscode
 __pycache__
+pretrained*
+.vscode
+apps_local
+.DS_Store*

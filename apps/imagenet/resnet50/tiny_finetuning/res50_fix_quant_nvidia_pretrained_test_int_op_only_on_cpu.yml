@@ -1,0 +1,93 @@
+# =========================== Basic Settings ===========================
+# machine info
+num_gpus_per_job: 8  # number of gpus each job need
+
+# data
+dataset: imagenet1k
+data_transforms: imagenet1k
+data_loader: imagenet1k
+dataset_dir: data
+data_loader_workers: 5
+
+# info
+num_classes: 1000
+image_size: 224 
+topk: [1, 5]
+num_epochs: 1
+
+# optimizer
+optimizer: sgd 
+momentum: 0.9 
+weight_decay: 0.0001
+nesterov: True
+
+# lr
+lr: 0
+lr_scheduler: constant
+
+
+# pretrain, resume, test_only
+pretrained_dir: ''
+pretrained_file: ''
+resume: ''
+test_only: False
+
+#
+random_seed: 1995
+model: ''
+reset_parameters: True
+
+#
+distributed: False
+distributed_all_reduce: False
+use_diff_seed: False
+
+#
+rescale_forward: True
+rescale_forward_conv: False
+normalize: True
+rescale_type: constant #[stddev, constant]
+
+#
+weight_format: [8, 7]
+input_format: [8, 6]
+
+#
+format_type: per_layer #[~, per_model, per_layer, per_channel]
+
+#
+format_from_metric: False
+momentum_for_metric: 0.1
+metric: std
+
+finetune_iters: 500
+ptcv_pretrained: False
+
+no_clipping: True
+input_fraclen_sharing: False
+
+format_grid_search: True
+
+#
+weight_decay_scheme: no_depthwise_no_bn #[all, only_no_depthwise, only_no_bn, no_depthwise_no_bn]
+
+nvidia_pretrained: True
+nvidia_pretrained_file: '/path/to/nvidia_model/nvidia_resnet50_200821.pth.tar'
+
+# =========================== Override Settings ===========================
+quant_bias: True
+quant_avgpool: True
+pool_fusing: True
+quant_maxpool: False #True ## Onnx does not support unfold used in MaxPool
+int_infer: True ## For int model
+integize: False #True ## For gpu inference
+int_op_only: True #False ## For cpu inference
+integize_file_path: '' #/path/to/pretrained_models/ImageNet/tiny_finetuning/ResNet50/nvidia_pretrained/8bit
+int_op_only_file_path: /path/to/pretrained_models/ImageNet/tiny_finetuning/ResNet50/nvidia_pretrained/8bit
+print_each_iter: True
+
+pretrained_file: /path/to/pretrained_models/ImageNet/tiny_finetuning/ResNet50/nvidia_pretrained/8bit/checkpoints/quant_avgpool_True_pool_fusing_True/best_model.pt
+test_only: True
+log_dir: /path/to/checkpoints/F8Net/results/imagenet/resnet50
+model: models.fix_resnet
+depth: 50

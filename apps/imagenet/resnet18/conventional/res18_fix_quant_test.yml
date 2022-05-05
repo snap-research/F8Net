@@ -1,0 +1,84 @@
+# =========================== Basic Settings ===========================
+# machine info
+num_gpus_per_job: 8
+
+# data
+dataset: imagenet1k
+data_transforms: imagenet1k
+data_loader: imagenet1k
+dataset_dir: data
+data_loader_workers: 5
+
+# info
+num_classes: 1000
+image_size: 224 
+topk: [1, 5]
+num_epochs: 150
+
+# optimizer
+optimizer: sgd 
+momentum: 0.9 
+weight_decay: 0.00004
+nesterov: True
+
+# lr
+lr: 0.05
+lr_scheduler: cos_annealing_iter
+
+
+# pretrain, resume, test_only
+pretrained_dir: ''
+pretrained_file: ''
+resume: ''
+test_only: False
+
+#
+random_seed: 1995
+model: ''
+reset_parameters: True
+
+#
+distributed: False
+distributed_all_reduce: False
+use_diff_seed: False
+
+#
+rescale_forward: True
+rescale_forward_conv: False
+#normalize: False
+rescale_type: constant #[stddev, constant]
+
+#
+weight_format: [8, 7]
+input_format: [8, 6]
+
+#
+format_type: per_layer #[~, per_model, per_layer, per_channel]
+
+#
+format_from_metric: True
+momentum_for_metric: 0.1
+metric: std
+
+#
+weight_decay_scheme: all
+
+#
+no_clipping: False
+input_fraclen_sharing: False
+
+# =========================== Override Settings ===========================
+quant_bias: False
+quant_avgpool: False
+pool_fusing: False
+int_infer: False #True ## For int model
+integize: False #True ## For gpu inference
+int_op_only: False ## For cpu inference
+integize_file_path: '' #/path/to/pretrained_models/ImageNet/conventional/ResNet18/8bit
+int_op_only_file_path: '' #/path/to/pretrained_models/ImageNet/conventional/ResNet18/8bit
+
+test_only: True
+pretrained_file: /path/to/pretrained_models/ImageNet/conventional/ResNet18/8bit/checkpoints/best_model.pt
+log_dir: /path/to/checkpoints/F8Net/results/imagenet/resnet18
+model: models.fix_resnet
+depth: 18

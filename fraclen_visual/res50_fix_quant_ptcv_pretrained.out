@@ -1,0 +1,1140 @@
+/root/FixBits
+Total batch size:  128
+Batch size per GPU:  128
+No. of GPUs:  1
+No. of nodes:  1
+No. of processes per node:  1
+seed for random sampling: 1995
+Experiment settings: ptcv_pretrained_True/fix_bn_False/finetune_iters_500/bn_calib_before_test_False/bn_calib_batch_num_100/lr_scheme_all/weight_format_wl_8_fl_7/input_format_wl_8_fl_6/rescale_forward_True/rescale_forward_conv_False/rescale_backward_False/rescale_backward_conv_False/rescale_type_constant/clamp_weight_False/use_shared_alpha_True/input_fraclen_sharing_False/per_channel_alpha_False/use_zeta_False/floating_False/floating_wo_clip_False/no_clipping_True/relu_after_first_conv_True/bn_wo_bias_False/fp_pretrained_False/start_epoch_None/alternating_False/format_type_per_layer/lambda_type_linear/lambda_gain_1/lambda_trainable_True/alpha_trainable_True/weight_trainable_True/fl_init_weight_7_input_6/hard_assign_epoch_120/hard_assign_val_only_False/weight_amplify_False/format_from_metric_False/metric_from_masked_tensor_False/momentum_for_metric_0.1/input_adaptive_False/metric_std/format_grid_search_True/bn_momentum_0.1/bn_eps_0.1/custom_bn_False/lr_0.0001/bn_var_lb_0/sync_bn_False/centralize_conv_False/centralize_fc_False/momentum_for_bias_diff_0.1/weight_decay_scheme_no_bn/effective_weight_decay_0.0/corrected_kaiming_init_False/nvidia_setting_False/normalize_True/warmup_epochs_0/label_smoothing_0.0/mixup_0.0/weight_decay_0.0001/fraclen_lb_0
+Downloading /root/.torch/models/resnet50b-0638-8a5473ef.pth.zip from https://github.com/osmr/imgclsmob/releases/download/v0.0.308/resnet50b-0638-8a5473ef.pth.zip...
+model layer name:  head.0
+ptcv model conv name:  features.init_block.conv.conv
+ptcv model bn name:  features.init_block.conv.bn
+model layer name:  stage_0_layer_0.body.0
+ptcv model conv name:  features.stage1.unit1.body.conv1.conv
+ptcv model bn name:  features.stage1.unit1.body.conv1.bn
+model layer name:  stage_0_layer_0.body.1
+ptcv model conv name:  features.stage1.unit1.body.conv2.conv
+ptcv model bn name:  features.stage1.unit1.body.conv2.bn
+model layer name:  stage_0_layer_0.body.2
+ptcv model conv name:  features.stage1.unit1.body.conv3.conv
+ptcv model bn name:  features.stage1.unit1.body.conv3.bn
+model layer name:  stage_0_layer_0.shortcut.0
+ptcv model conv name:  features.stage1.unit1.identity_conv.conv
+ptcv model bn name:  features.stage1.unit1.identity_conv.bn
+model layer name:  stage_0_layer_1.body.0
+ptcv model conv name:  features.stage1.unit2.body.conv1.conv
+ptcv model bn name:  features.stage1.unit2.body.conv1.bn
+model layer name:  stage_0_layer_1.body.1
+ptcv model conv name:  features.stage1.unit2.body.conv2.conv
+ptcv model bn name:  features.stage1.unit2.body.conv2.bn
+model layer name:  stage_0_layer_1.body.2
+ptcv model conv name:  features.stage1.unit2.body.conv3.conv
+ptcv model bn name:  features.stage1.unit2.body.conv3.bn
+model layer name:  stage_0_layer_2.body.0
+ptcv model conv name:  features.stage1.unit3.body.conv1.conv
+ptcv model bn name:  features.stage1.unit3.body.conv1.bn
+model layer name:  stage_0_layer_2.body.1
+ptcv model conv name:  features.stage1.unit3.body.conv2.conv
+ptcv model bn name:  features.stage1.unit3.body.conv2.bn
+model layer name:  stage_0_layer_2.body.2
+ptcv model conv name:  features.stage1.unit3.body.conv3.conv
+ptcv model bn name:  features.stage1.unit3.body.conv3.bn
+model layer name:  stage_1_layer_0.body.0
+ptcv model conv name:  features.stage2.unit1.body.conv1.conv
+ptcv model bn name:  features.stage2.unit1.body.conv1.bn
+model layer name:  stage_1_layer_0.body.1
+ptcv model conv name:  features.stage2.unit1.body.conv2.conv
+ptcv model bn name:  features.stage2.unit1.body.conv2.bn
+model layer name:  stage_1_layer_0.body.2
+ptcv model conv name:  features.stage2.unit1.body.conv3.conv
+ptcv model bn name:  features.stage2.unit1.body.conv3.bn
+model layer name:  stage_1_layer_0.shortcut.0
+ptcv model conv name:  features.stage2.unit1.identity_conv.conv
+ptcv model bn name:  features.stage2.unit1.identity_conv.bn
+model layer name:  stage_1_layer_1.body.0
+ptcv model conv name:  features.stage2.unit2.body.conv1.conv
+ptcv model bn name:  features.stage2.unit2.body.conv1.bn
+model layer name:  stage_1_layer_1.body.1
+ptcv model conv name:  features.stage2.unit2.body.conv2.conv
+ptcv model bn name:  features.stage2.unit2.body.conv2.bn
+model layer name:  stage_1_layer_1.body.2
+ptcv model conv name:  features.stage2.unit2.body.conv3.conv
+ptcv model bn name:  features.stage2.unit2.body.conv3.bn
+model layer name:  stage_1_layer_2.body.0
+ptcv model conv name:  features.stage2.unit3.body.conv1.conv
+ptcv model bn name:  features.stage2.unit3.body.conv1.bn
+model layer name:  stage_1_layer_2.body.1
+ptcv model conv name:  features.stage2.unit3.body.conv2.conv
+ptcv model bn name:  features.stage2.unit3.body.conv2.bn
+model layer name:  stage_1_layer_2.body.2
+ptcv model conv name:  features.stage2.unit3.body.conv3.conv
+ptcv model bn name:  features.stage2.unit3.body.conv3.bn
+model layer name:  stage_1_layer_3.body.0
+ptcv model conv name:  features.stage2.unit4.body.conv1.conv
+ptcv model bn name:  features.stage2.unit4.body.conv1.bn
+model layer name:  stage_1_layer_3.body.1
+ptcv model conv name:  features.stage2.unit4.body.conv2.conv
+ptcv model bn name:  features.stage2.unit4.body.conv2.bn
+model layer name:  stage_1_layer_3.body.2
+ptcv model conv name:  features.stage2.unit4.body.conv3.conv
+ptcv model bn name:  features.stage2.unit4.body.conv3.bn
+model layer name:  stage_2_layer_0.body.0
+ptcv model conv name:  features.stage3.unit1.body.conv1.conv
+ptcv model bn name:  features.stage3.unit1.body.conv1.bn
+model layer name:  stage_2_layer_0.body.1
+ptcv model conv name:  features.stage3.unit1.body.conv2.conv
+ptcv model bn name:  features.stage3.unit1.body.conv2.bn
+model layer name:  stage_2_layer_0.body.2
+ptcv model conv name:  features.stage3.unit1.body.conv3.conv
+ptcv model bn name:  features.stage3.unit1.body.conv3.bn
+model layer name:  stage_2_layer_0.shortcut.0
+ptcv model conv name:  features.stage3.unit1.identity_conv.conv
+ptcv model bn name:  features.stage3.unit1.identity_conv.bn
+model layer name:  stage_2_layer_1.body.0
+ptcv model conv name:  features.stage3.unit2.body.conv1.conv
+ptcv model bn name:  features.stage3.unit2.body.conv1.bn
+model layer name:  stage_2_layer_1.body.1
+ptcv model conv name:  features.stage3.unit2.body.conv2.conv
+ptcv model bn name:  features.stage3.unit2.body.conv2.bn
+model layer name:  stage_2_layer_1.body.2
+ptcv model conv name:  features.stage3.unit2.body.conv3.conv
+ptcv model bn name:  features.stage3.unit2.body.conv3.bn
+model layer name:  stage_2_layer_2.body.0
+ptcv model conv name:  features.stage3.unit3.body.conv1.conv
+ptcv model bn name:  features.stage3.unit3.body.conv1.bn
+model layer name:  stage_2_layer_2.body.1
+ptcv model conv name:  features.stage3.unit3.body.conv2.conv
+ptcv model bn name:  features.stage3.unit3.body.conv2.bn
+model layer name:  stage_2_layer_2.body.2
+ptcv model conv name:  features.stage3.unit3.body.conv3.conv
+ptcv model bn name:  features.stage3.unit3.body.conv3.bn
+model layer name:  stage_2_layer_3.body.0
+ptcv model conv name:  features.stage3.unit4.body.conv1.conv
+ptcv model bn name:  features.stage3.unit4.body.conv1.bn
+model layer name:  stage_2_layer_3.body.1
+ptcv model conv name:  features.stage3.unit4.body.conv2.conv
+ptcv model bn name:  features.stage3.unit4.body.conv2.bn
+model layer name:  stage_2_layer_3.body.2
+ptcv model conv name:  features.stage3.unit4.body.conv3.conv
+ptcv model bn name:  features.stage3.unit4.body.conv3.bn
+model layer name:  stage_2_layer_4.body.0
+ptcv model conv name:  features.stage3.unit5.body.conv1.conv
+ptcv model bn name:  features.stage3.unit5.body.conv1.bn
+model layer name:  stage_2_layer_4.body.1
+ptcv model conv name:  features.stage3.unit5.body.conv2.conv
+ptcv model bn name:  features.stage3.unit5.body.conv2.bn
+model layer name:  stage_2_layer_4.body.2
+ptcv model conv name:  features.stage3.unit5.body.conv3.conv
+ptcv model bn name:  features.stage3.unit5.body.conv3.bn
+model layer name:  stage_2_layer_5.body.0
+ptcv model conv name:  features.stage3.unit6.body.conv1.conv
+ptcv model bn name:  features.stage3.unit6.body.conv1.bn
+model layer name:  stage_2_layer_5.body.1
+ptcv model conv name:  features.stage3.unit6.body.conv2.conv
+ptcv model bn name:  features.stage3.unit6.body.conv2.bn
+model layer name:  stage_2_layer_5.body.2
+ptcv model conv name:  features.stage3.unit6.body.conv3.conv
+ptcv model bn name:  features.stage3.unit6.body.conv3.bn
+model layer name:  stage_3_layer_0.body.0
+ptcv model conv name:  features.stage4.unit1.body.conv1.conv
+ptcv model bn name:  features.stage4.unit1.body.conv1.bn
+model layer name:  stage_3_layer_0.body.1
+ptcv model conv name:  features.stage4.unit1.body.conv2.conv
+ptcv model bn name:  features.stage4.unit1.body.conv2.bn
+model layer name:  stage_3_layer_0.body.2
+ptcv model conv name:  features.stage4.unit1.body.conv3.conv
+ptcv model bn name:  features.stage4.unit1.body.conv3.bn
+model layer name:  stage_3_layer_0.shortcut.0
+ptcv model conv name:  features.stage4.unit1.identity_conv.conv
+ptcv model bn name:  features.stage4.unit1.identity_conv.bn
+model layer name:  stage_3_layer_1.body.0
+ptcv model conv name:  features.stage4.unit2.body.conv1.conv
+ptcv model bn name:  features.stage4.unit2.body.conv1.bn
+model layer name:  stage_3_layer_1.body.1
+ptcv model conv name:  features.stage4.unit2.body.conv2.conv
+ptcv model bn name:  features.stage4.unit2.body.conv2.bn
+model layer name:  stage_3_layer_1.body.2
+ptcv model conv name:  features.stage4.unit2.body.conv3.conv
+ptcv model bn name:  features.stage4.unit2.body.conv3.bn
+model layer name:  stage_3_layer_2.body.0
+ptcv model conv name:  features.stage4.unit3.body.conv1.conv
+ptcv model bn name:  features.stage4.unit3.body.conv1.bn
+model layer name:  stage_3_layer_2.body.1
+ptcv model conv name:  features.stage4.unit3.body.conv2.conv
+ptcv model bn name:  features.stage4.unit3.body.conv2.bn
+model layer name:  stage_3_layer_2.body.2
+ptcv model conv name:  features.stage4.unit3.body.conv3.conv
+ptcv model bn name:  features.stage4.unit3.body.conv3.bn
+model layer name:  classifier.0
+ptcv fc name:  output
+Loaded ptcv pretrained model.
+DataParallel(
+  (module): Model(
+    (head): Sequential(
+      (0): ReLUClipFXQConvBN(
+        (conv): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): ReLU(inplace=True)
+      (2): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    )
+    (stage_0_layer_0): Bottleneck(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (shortcut): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (post_relu): ReLU(inplace=True)
+    )
+    (stage_0_layer_1): Bottleneck(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (post_relu): ReLU(inplace=True)
+    )
+    (stage_0_layer_2): Bottleneck(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (post_relu): ReLU(inplace=True)
+    )
+    (stage_1_layer_0): Bottleneck(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (shortcut): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (post_relu): ReLU(inplace=True)
+    )
+    (stage_1_layer_1): Bottleneck(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (post_relu): ReLU(inplace=True)
+    )
+    (stage_1_layer_2): Bottleneck(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (post_relu): ReLU(inplace=True)
+    )
+    (stage_1_layer_3): Bottleneck(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (post_relu): ReLU(inplace=True)
+    )
+    (stage_2_layer_0): Bottleneck(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (shortcut): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (post_relu): ReLU(inplace=True)
+    )
+    (stage_2_layer_1): Bottleneck(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (post_relu): ReLU(inplace=True)
+    )
+    (stage_2_layer_2): Bottleneck(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (post_relu): ReLU(inplace=True)
+    )
+    (stage_2_layer_3): Bottleneck(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (post_relu): ReLU(inplace=True)
+    )
+    (stage_2_layer_4): Bottleneck(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (post_relu): ReLU(inplace=True)
+    )
+    (stage_2_layer_5): Bottleneck(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (post_relu): ReLU(inplace=True)
+    )
+    (stage_3_layer_0): Bottleneck(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (shortcut): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (bn): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (post_relu): ReLU(inplace=True)
+    )
+    (stage_3_layer_1): Bottleneck(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (post_relu): ReLU(inplace=True)
+    )
+    (stage_3_layer_2): Bottleneck(
+      (body): Sequential(
+        (0): ReLUClipFXQConvBN(
+          (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): ReLUClipFXQConvBN(
+          (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (2): ReLUClipFXQConvBN(
+          (conv): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (post_relu): ReLU(inplace=True)
+    )
+    (avgpool): AdaptiveAvgPool2d(output_size=1)
+    (classifier): Sequential(
+      (0): ReLUClipFXQLinear(in_features=2048, out_features=1000, bias=True)
+    )
+  )
+)
+log dir:  /nfs/qjin/checkpoints/FixBits/results/imagenet/resnet50/ptcv_pretrained_True/fix_bn_False/finetune_iters_500/bn_calib_before_test_False/bn_calib_batch_num_100/lr_scheme_all/weight_format_wl_8_fl_7/input_format_wl_8_fl_6/rescale_forward_True/rescale_forward_conv_False/rescale_backward_False/rescale_backward_conv_False/rescale_type_constant/clamp_weight_False/use_shared_alpha_True/input_fraclen_sharing_False/per_channel_alpha_False/use_zeta_False/floating_False/floating_wo_clip_False/no_clipping_True/relu_after_first_conv_True/bn_wo_bias_False/fp_pretrained_False/start_epoch_None/alternating_False/format_type_per_layer/lambda_type_linear/lambda_gain_1/lambda_trainable_True/alpha_trainable_True/weight_trainable_True/fl_init_weight_7_input_6/hard_assign_epoch_120/hard_assign_val_only_False/weight_amplify_False/format_from_metric_False/metric_from_masked_tensor_False/momentum_for_metric_0.1/input_adaptive_False/metric_std/format_grid_search_True/bn_momentum_0.1/bn_eps_0.1/custom_bn_False/lr_0.0001/bn_var_lb_0/sync_bn_False/centralize_conv_False/centralize_fc_False/momentum_for_bias_diff_0.1/weight_decay_scheme_no_bn/effective_weight_decay_0.0/corrected_kaiming_init_False/nvidia_setting_False/normalize_True/warmup_epochs_0/label_smoothing_0.0/mixup_0.0/weight_decay_0.0001/fraclen_lb_0
+Start training.
+**************** train *****************
+924.9s	train	0/1: loss: 0.621, l2_loss: 199227.91, total_loss: 0.621, top1_error: 0.151, top5_error: 0.05
+func:'run_one_epoch' took: 924.8909 sec
+~~~~~~~~~~~~~~ validation ~~~~~~~~~~~~~~
+173.5s	val	0/1: loss: 0.98, l2_loss: 197798.172, total_loss: 0.98, top1_error: 0.224, top5_error: 0.065, best_val: 1.0
+func:'run_one_epoch' took: 173.4961 sec
+New best validation top1 error: 0.224
+layer name: head.0.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 6.0.
+layer name: stage_0_layer_0.body.0.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_0_layer_0.body.1.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.9404], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_0_layer_0.body.2.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_0_layer_0.shortcut.0.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 6.0.
+layer name: stage_0_layer_1.body.0.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_0_layer_1.body.1.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_0_layer_1.body.2.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 6.0.
+layer name: stage_0_layer_2.body.0.
+alpha: 8.0.
+master layer alpha: 8.0.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_0_layer_2.body.1.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_0_layer_2.body.2.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 6.0.
+layer name: stage_1_layer_0.body.0.
+alpha: 8.0.
+master layer alpha: 8.0.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_1_layer_0.body.1.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_1_layer_0.body.2.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 6.0.
+layer name: stage_1_layer_0.shortcut.0.
+alpha: 8.0.
+master layer alpha: 8.0.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_1_layer_1.body.0.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_1_layer_1.body.1.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_1_layer_1.body.2.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 6.0.
+layer name: stage_1_layer_2.body.0.
+alpha: 8.0.
+master layer alpha: 8.0.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_1_layer_2.body.1.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_1_layer_2.body.2.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 6.0.
+layer name: stage_1_layer_3.body.0.
+alpha: 8.0.
+master layer alpha: 8.0.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_1_layer_3.body.1.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_1_layer_3.body.2.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([3.0001], device='cuda:0').
+weight_fraclen: 6.0.
+layer name: stage_2_layer_0.body.0.
+alpha: 8.0.
+master layer alpha: 8.0.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_0.body.1.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.9490], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_0.body.2.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_0.shortcut.0.
+alpha: 8.0.
+master layer alpha: 8.0.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_1.body.0.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_1.body.1.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_1.body.2.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.8985], device='cuda:0').
+weight_fraclen: 6.0.
+layer name: stage_2_layer_2.body.0.
+alpha: 8.0.
+master layer alpha: 8.0.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_2.body.1.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_2.body.2.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.9554], device='cuda:0').
+weight_fraclen: 6.0.
+layer name: stage_2_layer_3.body.0.
+alpha: 8.0.
+master layer alpha: 8.0.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_3.body.1.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.1044], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_3.body.2.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([3.1044], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_4.body.0.
+alpha: 8.0.
+master layer alpha: 8.0.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_4.body.1.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.3801], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_4.body.2.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([3.0000], device='cuda:0').
+weight_fraclen: 6.0.
+layer name: stage_2_layer_5.body.0.
+alpha: 8.0.
+master layer alpha: 8.0.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_5.body.1.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_2_layer_5.body.2.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_0.body.0.
+alpha: 8.0.
+master layer alpha: 8.0.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_0.body.1.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_0.body.2.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_0.shortcut.0.
+alpha: 8.0.
+master layer alpha: 8.0.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_1.body.0.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([3.6111], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_1.body.1.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_1.body.2.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 6.0.
+layer name: stage_3_layer_2.body.0.
+alpha: 8.0.
+master layer alpha: 8.0.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([3.0000], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_2.body.1.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([4.8366], device='cuda:0').
+weight_fraclen: 7.0.
+layer name: stage_3_layer_2.body.2.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+following layer fix scaling: 1.0.
+input_fraclen: tensor([5.0000], device='cuda:0').
+weight_fraclen: 6.0.
+layer name: classifier.0.
+alpha: 8.0.
+master layer: None.
+alpha in use: 8.0.
+weight format: (8, 7).
+input format: (8, 6).
+weight lambda: 7.0.
+input lambda: 6.0.
+fix scaling: 1.0.
+input_fraclen: tensor([4.0000], device='cuda:0').
+weight_fraclen: 7.0.
+func:'train_val_test' took: 1117.7634 sec
